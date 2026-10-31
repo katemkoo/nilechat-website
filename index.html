@@ -3,258 +3,377 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0767f8">
 
 <title>NileChat | نايل شات</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, Tahoma, sans-serif;
-  background: #f6f9ff;
-  color: #152033;
+body{
+  font-family:Tahoma,Arial,sans-serif;
+  background:#f7faff;
+  color:#102044;
 }
 
-/* الهيدر */
-header {
-  background: #ffffff;
-  padding: 18px 6%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+/* ===== Header ===== */
+
+header{
+  height:70px;
+  padding:0 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(255,255,255,.96);
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 4px 20px rgba(20,70,150,.07);
 }
 
-.logo {
-  font-size: 28px;
-  font-weight: 800;
-  color: #0866ff;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:25px;
+  font-weight:900;
+  color:#0867f8;
 }
 
-nav a {
-  text-decoration: none;
-  color: #344054;
-  margin: 0 10px;
-  font-size: 14px;
+.brand-icon{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#1499ff,#075df4);
+  color:white;
+  font-size:21px;
 }
 
-/* الصفحة الرئيسية */
-.hero {
-  min-height: 75vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 60px 20px;
+nav{
+  display:flex;
+  gap:25px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#31405f;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.nav-download{
+  color:#0867f8 !important;
+}
+
+/* ===== Hero ===== */
+
+.hero{
+  min-height:calc(100vh - 70px);
+  padding:55px 6%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:50px;
 
   background:
-    radial-gradient(circle at 20% 20%, #dcecff, transparent 35%),
-    radial-gradient(circle at 80% 70%, #e5efff, transparent 35%),
-    #f7faff;
+    radial-gradient(circle at 10% 10%,#d8edff 0,transparent 35%),
+    radial-gradient(circle at 90% 80%,#e3f3ff 0,transparent 35%),
+    #f8fbff;
 }
 
-.hero-content {
-  width: 100%;
-  max-width: 700px;
+.hero-text{
+  max-width:600px;
 }
 
-.app-icon {
-  width: 105px;
-  height: 105px;
-  margin: 0 auto 25px;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: linear-gradient(135deg, #1694ff, #075cff);
-
-  color: white;
-  font-size: 48px;
-
-  box-shadow: 0 15px 35px rgba(7,92,255,0.25);
+.badge{
+  display:inline-block;
+  background:#e8f2ff;
+  color:#0767f8;
+  padding:7px 16px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:18px;
 }
 
-h1 {
-  margin: 0;
-  color: #0866ff;
-  font-size: 56px;
+.hero h1{
+  font-size:clamp(45px,6vw,78px);
+  line-height:1.1;
+  color:#0867f8;
+  margin-bottom:14px;
 }
 
-.tagline {
-  margin-top: 8px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #334155;
+.hero h2{
+  font-size:28px;
+  margin-bottom:18px;
+  color:#15264b;
 }
 
-.description {
-  max-width: 570px;
-  margin: 15px auto 30px;
-  color: #64748b;
-  font-size: 16px;
-  line-height: 1.9;
+.hero p{
+  color:#65738d;
+  font-size:17px;
+  line-height:2;
+  margin-bottom:28px;
 }
 
-/* زر التحميل */
-.download-btn {
-  display: inline-block;
-
-  background: #0866ff;
-  color: white;
-
-  padding: 15px 30px;
-
-  border-radius: 15px;
-
-  text-decoration: none;
-  font-weight: bold;
-
-  box-shadow: 0 10px 25px rgba(8,102,255,0.25);
+.buttons{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
-.download-btn:hover {
-  background: #0057df;
+.download{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px 27px;
+  background:linear-gradient(135deg,#0876ff,#075be8);
+  color:white;
+  border-radius:15px;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 12px 30px rgba(7,102,248,.25);
 }
 
-.version {
-  display: block;
-  margin-top: 13px;
-  color: #8490a5;
-  font-size: 13px;
+.secondary{
+  display:inline-block;
+  padding:14px 22px;
+  border:1px solid #d5e2f4;
+  color:#263a60;
+  background:white;
+  border-radius:15px;
+  text-decoration:none;
+  font-weight:bold;
 }
 
-/* المميزات */
-.features {
-  padding: 70px 7%;
-  text-align: center;
-  background: #ffffff;
+.version{
+  display:block;
+  color:#8794aa;
+  font-size:13px;
+  margin-top:15px;
 }
 
-.features h2 {
-  font-size: 32px;
-  margin-bottom: 35px;
+/* ===== Hero image ===== */
+
+.hero-visual{
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-.cards {
-  max-width: 1000px;
-  margin: auto;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 20px;
+.poster{
+  width:100%;
+  max-width:560px;
+  border-radius:30px;
+  box-shadow:
+    0 30px 70px rgba(18,75,150,.18),
+    0 5px 15px rgba(0,0,0,.05);
 }
 
-.card {
-  background: #f8faff;
+/* ===== Features ===== */
 
-  padding: 30px 20px;
-
-  border-radius: 22px;
-
-  border: 1px solid #edf2f8;
+.features{
+  padding:90px 6%;
+  background:white;
+  text-align:center;
 }
 
-.card-icon {
-  font-size: 36px;
+.section-label{
+  color:#0872fa;
+  font-size:14px;
+  font-weight:bold;
 }
 
-.card h3 {
-  margin: 12px 0 7px;
+.features h2{
+  font-size:36px;
+  margin:8px 0 40px;
 }
 
-.card p {
-  color: #64748b;
-  font-size: 14px;
-  line-height: 1.8;
+.cards{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
 
-/* قسم التحميل */
-.download-section {
-  padding: 70px 20px;
-  text-align: center;
-
-  background: linear-gradient(
-    135deg,
-    #0866ff,
-    #008cff
-  );
-
-  color: white;
+.card{
+  padding:30px 20px;
+  background:#f8fbff;
+  border:1px solid #e9f0fa;
+  border-radius:24px;
+  transition:.25s;
 }
 
-.download-section h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(20,80,160,.08);
 }
 
-.download-section p {
-  margin-bottom: 25px;
-  opacity: 0.9;
+.card-icon{
+  width:58px;
+  height:58px;
+  margin:0 auto 15px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#e5f1ff;
+  font-size:28px;
 }
 
-.download-white {
-  display: inline-block;
-
-  background: white;
-  color: #0866ff;
-
-  text-decoration: none;
-  font-weight: bold;
-
-  padding: 15px 30px;
-
-  border-radius: 15px;
+.card h3{
+  font-size:19px;
+  margin-bottom:8px;
 }
 
-/* الفوتر */
-footer {
-  text-align: center;
-  padding: 30px 15px;
-
-  background: #101827;
-  color: #94a3b8;
-
-  font-size: 14px;
+.card p{
+  color:#718096;
+  font-size:14px;
+  line-height:1.8;
 }
 
-footer strong {
-  color: white;
+/* ===== Download ===== */
+
+.download-area{
+  margin:70px 6%;
+  padding:60px 25px;
+  text-align:center;
+  border-radius:35px;
+  color:white;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(255,255,255,.18),transparent 30%),
+    linear-gradient(135deg,#075be9,#0699ff);
+  box-shadow:0 20px 50px rgba(0,105,255,.18);
 }
 
-/* الهاتف */
-@media (max-width: 700px) {
+.download-area h2{
+  font-size:36px;
+  margin-bottom:12px;
+}
 
-  nav {
-    display: none;
+.download-area p{
+  opacity:.9;
+  margin-bottom:25px;
+}
+
+.white-btn{
+  display:inline-block;
+  background:white;
+  color:#0767f8;
+  padding:16px 30px;
+  border-radius:15px;
+  text-decoration:none;
+  font-weight:900;
+}
+
+/* ===== Footer ===== */
+
+footer{
+  padding:35px 20px;
+  text-align:center;
+  background:#0d1729;
+  color:#8896ad;
+  font-size:13px;
+}
+
+footer strong{
+  color:white;
+  font-size:18px;
+}
+
+/* ===== Mobile ===== */
+
+@media(max-width:800px){
+
+  header{
+    height:62px;
+    padding:0 18px;
   }
 
-  header {
-    justify-content: center;
+  nav{
+    display:none;
   }
 
-  h1 {
-    font-size: 44px;
+  .hero{
+    min-height:auto;
+    grid-template-columns:1fr;
+    padding:45px 20px 55px;
+    text-align:center;
+    gap:40px;
   }
 
-  .tagline {
-    font-size: 19px;
+  .hero-text{
+    margin:auto;
   }
 
-  .cards {
-    grid-template-columns: 1fr;
+  .hero h1{
+    font-size:48px;
   }
 
-  .hero {
-    min-height: 78vh;
+  .hero h2{
+    font-size:23px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .buttons{
+    justify-content:center;
+  }
+
+  .hero-visual{
+    order:2;
+  }
+
+  .poster{
+    max-width:440px;
+    border-radius:22px;
+  }
+
+  .features{
+    padding:65px 18px;
+  }
+
+  .features h2{
+    font-size:29px;
+  }
+
+  .cards{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .download-area{
+    margin:35px 18px 55px;
+    padding:45px 20px;
+  }
+
+  .download-area h2{
+    font-size:28px;
+  }
+}
+
+@media(max-width:480px){
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .buttons a{
+    width:100%;
   }
 }
 </style>
@@ -264,50 +383,68 @@ footer strong {
 
 <header>
 
-  <div class="logo">
+  <div class="brand">
+    <div class="brand-icon">💬</div>
     NileChat
   </div>
 
   <nav>
     <a href="#home">الرئيسية</a>
     <a href="#features">المميزات</a>
-    <a href="#download">تحميل التطبيق</a>
+    <a href="#download">عن التطبيق</a>
+    <a class="nav-download" href="#download">تحميل</a>
   </nav>
 
 </header>
 
 
+<main>
+
 <section class="hero" id="home">
 
-  <div class="hero-content">
+  <div class="hero-text">
 
-    <div class="app-icon">
-      💬
-    </div>
+    <span class="badge">
+      🇸🇩 نبض التواصل السوداني
+    </span>
 
-    <h1>
-      نايل شات
-    </h1>
+    <h1>نايل شات</h1>
 
-    <div class="tagline">
-      تواصل أقرب.. تجربة أجمل
-    </div>
+    <h2>تواصل أقرب.. تجربة أجمل</h2>
 
-    <p class="description">
-      NileChat تطبيق تواصل حديث يجمع المحادثات
-      والنبضات والمجتمعات في تجربة سريعة وسلسة
-      مصممة لتقربك من الأشخاص الذين يهمونك.
+    <p>
+      منصة تواصل حديثة تجمع المحادثات والنبضات
+      والروافد والمجالس في تجربة واحدة سريعة،
+      عصرية وسهلة الاستخدام.
     </p>
 
-    <a
-      class="download-btn"
-      href="https://github.com/katemkoo/NileChat-Updates/releases/download/v2.1/NileChat.apk">
-      ⬇ تحميل NileChat
-    </a>
+    <div class="buttons">
+
+      <a
+        class="download"
+        href="https://github.com/katemkoo/NileChat-Updates/releases/download/v2.1/NileChat.apk">
+        ↓ تحميل NileChat
+      </a>
+
+      <a class="secondary" href="#features">
+        اكتشف المميزات
+      </a>
+
+    </div>
 
     <span class="version">
-      Android • الإصدار v2.1
+      Android • الإصدار الحالي v2.1
     </span>
+
+  </div>
+
+
+  <div class="hero-visual">
+
+    <img
+      class="poster"
+      src="nilechat-hero.png"
+      alt="NileChat">
 
   </div>
 
@@ -316,63 +453,54 @@ footer strong {
 
 <section class="features" id="features">
 
+  <span class="section-label">
+    NILECHAT
+  </span>
+
   <h2>
-    عالمك في مكان واحد
+    كل عالمك في مكان واحد
   </h2>
+
 
   <div class="cards">
 
     <div class="card">
-
-      <div class="card-icon">
-        💬
-      </div>
-
-      <h3>
-        المحادثات
-      </h3>
-
+      <div class="card-icon">💬</div>
+      <h3>المحادثات</h3>
       <p>
-        محادثات سريعة وسلسة تساعدك على البقاء
-        قريباً من أصدقائك والأشخاص المهمين لك.
+        تواصل بسرعة وأمان وشارك الرسائل
+        والصور والوسائط مع أصدقائك.
       </p>
-
     </div>
 
 
     <div class="card">
-
-      <div class="card-icon">
-        💙
-      </div>
-
-      <h3>
-        النبضات
-      </h3>
-
+      <div class="card-icon">💙</div>
+      <h3>النبضات</h3>
       <p>
         شارك لحظاتك وتابع نبضات الآخرين
         واكتشف ما يحدث حولك.
       </p>
-
     </div>
 
 
     <div class="card">
-
-      <div class="card-icon">
-        👥
-      </div>
-
-      <h3>
-        المجتمعات
-      </h3>
-
+      <div class="card-icon">📡</div>
+      <h3>الروافد</h3>
       <p>
-        انضم إلى مساحات تجمع الأشخاص
-        والاهتمامات والمحتوى الذي تحبه.
+        تابع المحتوى والأخبار والتحديثات
+        من الروافد التي تهمك.
       </p>
+    </div>
 
+
+    <div class="card">
+      <div class="card-icon">👥</div>
+      <h3>المجالس</h3>
+      <p>
+        مساحات تجمع الأشخاص للنقاش
+        والتواصل وتبادل الأفكار.
+      </p>
     </div>
 
   </div>
@@ -380,34 +508,38 @@ footer strong {
 </section>
 
 
-<section class="download-section" id="download">
+<section class="download-area" id="download">
 
   <h2>
-    جاهز لتجربة NileChat؟
+    ابدأ تجربتك مع NileChat
   </h2>
 
   <p>
-    حمّل أحدث إصدار من التطبيق على هاتف Android.
+    حمّل أحدث إصدار من التطبيق مجانًا على Android.
   </p>
 
   <a
-    class="download-white"
+    class="white-btn"
     href="https://github.com/katemkoo/NileChat-Updates/releases/download/v2.1/NileChat.apk">
-    ⬇ تحميل الإصدار v2.1
+    ↓ تحميل NileChat v2.1
   </a>
 
 </section>
 
+</main>
+
 
 <footer>
 
-  <strong>
-    NileChat
-  </strong>
+  <strong>NileChat</strong>
+
+  <br><br>
+
+  نبض التواصل السوداني
 
   <br>
 
-  © 2026 جميع الحقوق محفوظة
+  © 2026 NileChat — جميع الحقوق محفوظة
 
 </footer>
 
