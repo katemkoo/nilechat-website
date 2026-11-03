@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07142e">
+  <meta name="description" content="نايل شات NileChat — نبض التواصل السوداني. محادثات، نبضات، روافد ومجالس في تجربة واحدة. حمّل تطبيق أندرويد.">
+  <meta property="og:title" content="NileChat | نايل شات">
+  <meta property="og:description" content="تواصل أقرب.. تجربة أجمل. اكتشف عالم نايل شات وحمّل التطبيق.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://katemkoo.github.io/nilechat-website/nilechat-hero.png">
+  <link rel="icon" href="nilechat-logo.png" type="image/png">
+  <title>NileChat | نايل شات — نبض التواصل السوداني</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050e20;
+      --panel: #0c1b36;
+      --surface: #102242;
+      --text: #f7faff;
+      --muted: #aebfd9;
+      --brand: #4d95ff;
+      --brand-light: #94cbff;
+      --cyan: #5ce2fa;
+      --border: rgba(159, 198, 255, .15);
+      --shadow: 0 24px 75px rgba(0, 0, 0, .28);
+      --radius: 24px;
+      --container: 1180px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+    body {
+      margin: 0;
+      font-family: Tahoma, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      line-height: 1.8;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    img { max-width: 100%; display: block; }
+    ::selection { background: #4d95ff; color: white; }
+    :focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; border-radius: 4px; }
+    .container { width: min(var(--container), calc(100% - 40px)); margin-inline: auto; }
+    .skip-link {
+      position: absolute; right: 18px; top: -90px; padding: 9px 18px;
+      background: white; color: #0c1b36; z-index: 9999; border-radius: 9px;
+    }
+    .skip-link:focus { top: 12px; }
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid rgba(149, 190, 255, .12);
+      background: rgba(5, 14, 32, .83);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    }
+    .header-row {
+      min-height: 78px; display: flex; align-items: center;
+      justify-content: space-between; gap: 18px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 11px; direction: ltr; }
+    .brand-logo {
+      width: 48px; height: 48px; object-fit: contain;
+      border-radius: 14px; background: rgba(255,255,255,.05);
+    }
+    .brand-name { font-size: 24px; font-weight: 900; letter-spacing: -.7px; }
+    .brand-name span { color: var(--brand-light); }
+    .nav { display: flex; align-items: center; gap: 24px; }
+    .nav a { font-size: 14px; color: #cad8ed; font-weight: 700; transition: color .2s; }
+    .nav a:hover { color: white; }
+    .nav .nav-cta {
+      color: white; background: rgba(77,149,255,.16);
+      border: 1px solid rgba(116,178,255,.36);
+      border-radius: 12px; padding: 9px 18px;
+    }
+    .nav .nav-cta:hover { background: rgba(77,149,255,.3); }
+    .menu-toggle {
+      display: none; width: 44px; height: 44px; color: white;
+      border: 1px solid var(--border); border-radius: 12px;
+      background: rgba(255,255,255,.04); cursor: pointer; align-items: center;
+      justify-content: center; font-size: 22px;
+    }
+    .hero {
+      position: relative; isolation: isolate; overflow: hidden;
+      padding: 92px 0 100px;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(53,110,244,.19), transparent 34%),
+        radial-gradient(circle at 88% 77%, rgba(10,208,250,.12), transparent 32%),
+        linear-gradient(155deg, #07152e, #050e20 77%);
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .3;
+      background-image: radial-gradient(rgba(141,185,255,.44) .7px, transparent .7px);
+      background-size: 24px 24px; mask-image: linear-gradient(to bottom, black, transparent 88%);
+      z-index: -1;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 62px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: #cae6ff; border: 1px solid rgba(106,169,255,.3);
+      background: rgba(72,135,245,.11); padding: 6px 16px;
+      border-radius: 999px; font-size: 13px; font-weight: 700;
+    }
+    .eyebrow .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--cyan); box-shadow: 0 0 16px var(--cyan);
+    }
+    .hero h1 {
+      margin: 24px 0 6px; font-size: clamp(54px, 7vw, 88px);
+      line-height: 1.18; letter-spacing: -2px; font-weight: 900;
+    }
+    .gradient-text {
+      background: linear-gradient(100deg, #e9f7ff 10%, #82bdff 52%, #48e4ff);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero h2 { font-size: clamp(21px, 2.6vw, 31px); margin: 0 0 19px; font-weight: 750; }
+    .hero p { max-width: 530px; margin: 0 0 28px; color: var(--muted); font-size: 17px; }
+    .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .button {
+      min-height: 52px; padding: 11px 23px; display: inline-flex;
+      justify-content: center; align-items: center; gap: 10px;
+      font-weight: 800; border-radius: 14px; transition: transform .25s, box-shadow .25s, background .25s;
+      text-align: center;
+    }
+    .button:hover { transform: translateY(-3px); }
+    .button-primary {
+      background: linear-gradient(120deg, #1878ff, #32b6ff);
+      color: white; box-shadow: 0 14px 34px rgba(16,104,244,.3);
+    }
+    .button-primary:hover { box-shadow: 0 18px 42px rgba(16,104,244,.43); }
+    .button-secondary {
+      color: #e0edff; background: rgba(255,255,255,.055);
+      border: 1px solid rgba(148,197,255,.23);
+    }
+    .button-secondary:hover { background: rgba(255,255,255,.12); }
+    .meta-row { display: flex; flex-wrap: wrap; gap: 14px 22px; margin-top: 24px; color: #a1b4cf; font-size: 13px; }
+    .meta-row span::before { content: "✦"; color: #65d8fc; margin-left: 7px; }
+    .hero-visual { position: relative; min-width: 0; padding: 26px 14px; }
+    .hero-visual::before {
+      content: ""; position: absolute; width: 76%; aspect-ratio: 1;
+      border-radius: 50%; background: #1c5ecd; opacity: .28; filter: blur(85px);
+      left: 12%; top: 12%; z-index: -1; animation: glow 7s ease-in-out infinite alternate;
+    }
+    .preview-frame {
+      padding: 12px; background: linear-gradient(145deg, rgba(91,163,255,.23), rgba(255,255,255,.045));
+      border: 1px solid rgba(142,191,255,.27); border-radius: 34px;
+      box-shadow: var(--shadow); transform: perspective(1100px) rotateY(8deg) rotateX(4deg);
+      animation: float 7s ease-in-out infinite; overflow: hidden;
+    }
+    .preview-frame img {
+      width: 100%; height: auto; border-radius: 23px;
+      background: linear-gradient(145deg, #102c53, #0a1730);
+    }
+    .float-chip {
+      position: absolute; z-index: 2; display: flex; align-items: center; gap: 9px;
+      padding: 11px 16px; font-size: 13px; font-weight: 800;
+      color: white; border: 1px solid rgba(179,214,255,.26);
+      background: rgba(13,35,70,.88); backdrop-filter: blur(14px);
+      border-radius: 15px; box-shadow: 0 12px 30px rgba(0,0,0,.23);
+    }
+    .chip-one { top: 1%; right: -4%; animation: drift 5s ease-in-out infinite; }
+    .chip-two { bottom: 2%; left: -4%; animation: drift 6s ease-in-out infinite reverse; }
+    .chip-icon {
+      display: grid; place-items: center; width: 33px; height: 33px;
+      background: rgba(47,139,255,.19); border-radius: 10px; font-size: 19px;
+    }
+    .section { padding: 96px 0; }
+    .section-header { max-width: 720px; text-align: center; margin: 0 auto 42px; }
+    .overline { font-size: 13px; letter-spacing: 2px; color: #76b9ff; font-weight: 900; }
+    .section-header h2 { font-size: clamp(29px, 3.9vw, 43px); margin: 9px 0 11px; line-height: 1.4; }
+    .section-header p { color: var(--muted); margin: 0; font-size: 16px; }
+    .features { background: linear-gradient(to bottom, #071228, #09162d); }
+    .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .feature-card {
+      position: relative; overflow: hidden; padding: 30px 22px;
+      background: linear-gradient(155deg, rgba(26,54,98,.62), rgba(13,27,52,.9));
+      border: 1px solid var(--border); border-radius: var(--radius);
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+    .feature-card::after {
+      content: ""; position: absolute; width: 130px; height: 130px;
+      left: -65px; top: -65px; border-radius: 50%; background: rgba(53,149,255,.09);
+      filter: blur(20px); pointer-events: none;
+    }
+    .feature-card:hover {
+      transform: translateY(-7px); border-color: rgba(118,185,255,.52);
+      box-shadow: 0 20px 43px rgba(0,0,0,.22);
+    }
+    .feature-icon {
+      width: 60px; height: 60px; display: grid; place-items: center;
+      margin-bottom: 20px; border-radius: 18px;
+      background: linear-gradient(140deg, rgba(50,128,253,.3), rgba(28,206,237,.13));
+      border: 1px solid rgba(114,182,255,.21); font-size: 28px;
+    }
+    .feature-card h3 { margin: 0 0 8px; font-size: 21px; }
+    .feature-card p { margin: 0; color: #b3c3dc; font-size: 14px; line-height: 2; }
+    .experience { background: #050e20; }
+    .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 66px; align-items: center; }
+    .experience-copy h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.45; margin: 10px 0 14px; }
+    .experience-copy p { color: var(--muted); font-size: 16px; }
+    .experience-points { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 14px; }
+    .experience-points li { color: #d4e4f9; display: flex; align-items: start; gap: 12px; }
+    .check-icon {
+      display: inline-grid; place-items: center; flex: 0 0 25px; width: 25px; height: 25px;
+      border-radius: 50%; color: #78e8fb; background: rgba(45,169,230,.15); font-weight: 900;
+    }
+    .demo {
+      max-width: 520px; margin-inline: auto; padding: 20px; border-radius: 26px;
+      background: linear-gradient(135deg, #0f2241, #0b1931);
+      border: 1px solid rgba(156,202,255,.22); box-shadow: var(--shadow);
+    }
+    .demo-head {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 14px; border-bottom: 1px solid var(--border);
+    }
+    .demo-user { display: flex; align-items: center; gap: 11px; }
+    .demo-avatar { width: 41px; height: 41px; display: grid; place-items: center; background: linear-gradient(140deg, #3269d5,#2cc7f5); border-radius: 50%; }
+    .demo-head strong { font-size: 15px; }
+    .demo-head small { display: block; color: #9eb1ce; font-size: 12px; line-height: 1.5; }
+    .demo-window { min-height: 230px; padding: 29px 0 4px; display: flex; flex-direction: column; gap: 15px; }
+    .bubble {
+      max-width: 84%; padding: 13px 17px; font-size: 14px; border-radius: 17px;
+      border: 1px solid rgba(155,195,255,.11);
+    }
+    .bubble.mine { background: linear-gradient(125deg, #1371e8,#276ed3); align-self: flex-start; border-bottom-left-radius: 5px; }
+    .bubble.theirs { background: #1b3154; align-self: flex-end; border-bottom-right-radius: 5px; }
+    .bubble small { display: block; direction: ltr; text-align: left; font-size: 10px; opacity: .75; margin-top: 3px; }
+    .demo-input {
+      margin-top: 18px; padding: 12px 15px; background: #07172f;
+      border-radius: 13px; border: 1px solid var(--border);
+      color: #839bb9; font-size: 12px;
+    }
+    .demo-note { font-size: 12px; color: #88a0c0; margin: 13px 4px 0; text-align: center; }
+    .download-section { padding: 24px 0 95px; }
+    .download-panel {
+      position: relative; overflow: hidden; padding: 68px 35px; text-align: center;
+      border-radius: 32px; border: 1px solid rgba(142,208,255,.27);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(0,234,255,.18), transparent 33%),
+        radial-gradient(circle at 90% 90%, rgba(86,94,249,.35), transparent 35%),
+        linear-gradient(125deg, #0a3a90, #0b6bba 58%, #0f6fbd);
+      box-shadow: 0 24px 54px rgba(0,77,166,.2);
+    }
+    .download-panel h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.3; margin: 12px 0; }
+    .download-panel p { color: #e1f2ff; margin: 0 auto 24px; max-width: 660px; }
+    .download-panel .actions { justify-content: center; }
+    .button-white { background: white; color: #075ebf; }
+    .button-white:hover { box-shadow: 0 12px 32px rgba(0,0,0,.18); }
+    .button-ghost { border: 1px solid rgba(255,255,255,.45); background: rgba(0,0,0,.07); }
+    .site-footer { border-top: 1px solid var(--border); background: #040b19; }
+    .footer-row {
+      display: flex; flex-wrap: wrap; justify-content: space-between;
+      align-items: center; gap: 15px; padding: 29px 0; font-size: 13px; color: #91a7c6;
+    }
+    .footer-row strong { color: white; font-size: 18px; }
+    .footer-links { display: flex; align-items: center; gap: 22px; }
+    .footer-links a:hover { color: white; }
+    @keyframes float {
+      0%,100% { transform: perspective(1100px) rotateY(8deg) rotateX(4deg) translateY(0); }
+      50% { transform: perspective(1100px) rotateY(4deg) rotateX(2deg) translateY(-15px); }
+    }
+    @keyframes glow { from { transform: scale(.85); } to { transform: scale(1.15); } }
+    @keyframes drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .js .reveal { opacity: 0; transform: translateY(25px); transition: opacity .75s, transform .75s; }
+    .js .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 940px) {
+      .hero-grid, .experience-grid { gap: 35px; }
+      .feature-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .hero h1 { font-size: 58px; }
+    }
+    @media (max-width: 760px) {
+      .header-row { min-height: 69px; }
+      .brand-logo { width: 43px; height: 43px; }
+      .brand-name { font-size: 21px; }
+      .menu-toggle { display: inline-flex; }
+      .nav {
+        display: none; position: absolute; top: calc(100% + 1px); right: 0; left: 0;
+        background: #091a36; padding: 15px 20px 22px; border-bottom: 1px solid var(--border);
+        box-shadow: 0 20px 40px rgba(0,0,0,.25); flex-direction: column; gap: 6px; align-items: stretch;
+      }
+      .nav.is-open { display: flex; }
+      .nav a { padding: 11px 12px; border-radius: 10px; }
+      .nav a:hover { background: rgba(255,255,255,.06); }
+      .nav .nav-cta { text-align: center; margin-top: 5px; }
+      .hero { padding: 55px 0 70px; }
+      .hero-grid, .experience-grid { grid-template-columns: 1fr; }
+      .hero-copy { text-align: center; }
+      .hero p { margin-inline: auto; }
+      .actions, .meta-row { justify-content: center; }
+      .hero-visual { max-width: 540px; width: 100%; margin-inline: auto; padding: 25px 27px; }
+      .preview-frame { transform: none; animation: float-mobile 7s ease-in-out infinite; }
+      .chip-one { right: 2%; } .chip-two { left: 2%; }
+      .section { padding: 70px 0; }
+      .experience-copy { text-align: center; }
+      .experience-points { text-align: right; }
+      .download-section { padding: 10px 0 65px; }
+      .download-panel { padding: 46px 24px; }
+    }
+    @keyframes float-mobile { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }
+    @media (max-width: 480px) {
+      .container { width: min(var(--container), calc(100% - 30px)); }
+      .hero h1 { font-size: 54px; }
+      .hero h2 { font-size: 21px; }
+      .hero p { font-size: 15px; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature-card { padding: 25px; }
+      .hero .button { flex-grow: 1; }
+      .float-chip { font-size: 11px; padding: 8px 10px; }
+      .chip-icon { width: 26px; height: 26px; font-size: 15px; }
+      .footer-row { justify-content: center; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js .reveal { opacity: 1 !important; transform: none !important; }
+      .preview-frame { transform: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">الانتقال إلى المحتوى</a>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#home" aria-label="نايل شات - الرئيسية">
+        <img class="brand-logo" src="nilechat-logo.png" alt="شعار نايل شات" width="48" height="48">
+        <span class="brand-name">Nile<span>Chat</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="فتح قائمة التنقل" aria-controls="main-nav" aria-expanded="false">☰</button>
+      <nav id="main-nav" class="nav" aria-label="التنقل الرئيسي">
+        <a href="#home">الرئيسية</a>
+        <a href="#features">المميزات</a>
+        <a href="#experience">التجربة</a>
+        <a href="#download" class="nav-cta">تحميل التطبيق ↓</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow"><span class="dot" aria-hidden="true"></span> 🇸🇩 نبض التواصل السوداني</span>
+          <h1 id="hero-title"><span class="gradient-text">نايل شات</span></h1>
+          <h2>تواصل أقرب.. تجربة أجمل</h2>
+          <p>من المحادثات والنبضات إلى الروافد والمجالس؛ مساحة تجمع تواصلك اليومي في تجربة عصرية بسيطة وقريبة منك.</p>
+          <div class="actions">
+            <a class="button button-primary" href="https://github.com/katemkoo/NileChat-Updates/releases/download/v2.1/NileChat.apk" aria-label="تحميل ملف نايل شات APK الإصدار 2.1">↓ تحميل نايل شات</a>
+            <a class="button button-secondary" href="#features">اكتشف المميزات</a>
+          </div>
+          <div class="meta-row" aria-label="معلومات التطبيق">
+            <span>متاح لأندرويد</span>
+            <span>الإصدار المنشور v2.1</span>
+            <span>تحميل مجاني</span>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="float-chip chip-one" aria-hidden="true"><span class="chip-icon">💬</span> محادثاتك أقرب</div>
+          <div class="preview-frame">
+            <img src="nilechat-hero.png" alt="صورة تعريفية لتطبيق نايل شات" width="560" height="560" fetchpriority="high">
+          </div>
+          <div class="float-chip chip-two" aria-hidden="true"><span class="chip-icon">💙</span> شارك نبضتك</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="overline">NILECHAT FEATURES</span>
+          <h2 id="features-title">كل عالمك في مكان واحد</h2>
+          <p>تعرّف على المساحات التي تجعل نايل شات أكثر من مجرد تطبيق للمحادثة.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">💬</div>
+            <h3>المحادثات</h3>
+            <p>أرسل الرسائل والصور والوسائط، واستمتع بتجربة تواصل واضحة وسهلة.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">💙</div>
+            <h3>النبضات</h3>
+            <p>شارك لحظات يومك وتابع نبضات الأشخاص المهمين بالنسبة إليك.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">📡</div>
+            <h3>الروافد</h3>
+            <p>تابع المحتوى والأخبار والتحديثات من الروافد التي تهتم بها.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">👥</div>
+            <h3>المجالس</h3>
+            <p>مساحات للنقاش والمشاركة والتواصل مع أشخاص يجمعهم الاهتمام نفسه.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experience" id="experience" aria-labelledby="experience-title">
+      <div class="container experience-grid">
+        <div class="experience-copy reveal">
+          <span class="overline">A BETTER WAY TO CONNECT</span>
+          <h2 id="experience-title">تفاصيل صغيرة تصنع <span class="gradient-text">تجربة أجمل</span></h2>
+          <p>تصميم يهتم بالوضوح والسهولة، من أول رسالة إلى مشاركة أجمل لحظاتك.</p>
+          <ul class="experience-points">
+            <li><span class="check-icon" aria-hidden="true">✓</span><span>هوية بصرية مستوحاة من النيل ودرجات الأزرق.</span></li>
+            <li><span class="check-icon" aria-hidden="true">✓</span><span>محتوى وواجهة عربية واضحة وسهلة التصفح.</span></li>
+            <li><span class="check-icon" aria-hidden="true">✓</span><span>كل المزايا الأساسية في مساحة واحدة.</span></li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <div class="demo" aria-label="عرض توضيحي لشكل المحادثة، وليس محادثة حقيقية">
+            <div class="demo-head">
+              <div class="demo-user">
+                <div class="demo-avatar" aria-hidden="true">💙</div>
+                <div><strong>نايل شات</strong><small>عرض توضيحي</small></div>
+              </div>
+              <span aria-hidden="true">⋯</span>
+            </div>
+            <div class="demo-window">
+              <div class="bubble mine">مرحباً بك في نايل شات 👋<small>10:30 ✓✓</small></div>
+              <div class="bubble theirs">أهلاً! تجربة جميلة 💙<small>10:31</small></div>
+              <div class="bubble mine">التواصل أصبح أقرب ✨<small>10:32 ✓✓</small></div>
+            </div>
+            <div class="demo-input" aria-hidden="true">اكتب رسالة... ✎</div>
+          </div>
+          <p class="demo-note">نموذج بصري توضيحي — لا توجد مراسلة فعلية داخل الموقع.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="download-section" id="download" aria-labelledby="download-title">
+      <div class="container">
+        <div class="download-panel reveal">
+          <span class="eyebrow">جاهز للانطلاق؟ 🚀</span>
+          <h2 id="download-title">ابدأ تجربتك مع نايل شات</h2>
+          <p>حمّل النسخة المنشورة من التطبيق على جهاز أندرويد، واكتشف عالم التواصل في نايل شات.</p>
+          <div class="actions">
+            <a class="button button-white" href="https://github.com/katemkoo/NileChat-Updates/releases/download/v2.1/NileChat.apk">↓ تحميل NileChat v2.1</a>
+            <a class="button button-secondary button-ghost" href="https://github.com/katemkoo/NileChat-Updates/releases/tag/v2.1" target="_blank" rel="noopener noreferrer">تفاصيل الإصدار ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div><strong>NileChat</strong><div>نبض التواصل السوداني</div></div>
+      <div class="footer-links">
+        <a href="#features">المميزات</a>
+        <a href="#download">التحميل</a>
+        <a href="https://github.com/katemkoo/NileChat-Updates/releases" target="_blank" rel="noopener noreferrer">الإصدارات</a>
+      </div>
+      <div>© 2026 NileChat — جميع الحقوق محفوظة</div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      "use strict";
+      const menuButton = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("#main-nav");
+      function closeMenu() {
+        nav.classList.remove("is-open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "فتح قائمة التنقل");
+        menuButton.textContent = "☰";
+      }
+      menuButton.addEventListener("click", function () {
+        const isOpen = nav.classList.toggle("is-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "إغلاق قائمة التنقل" : "فتح قائمة التنقل");
+        menuButton.textContent = isOpen ? "✕" : "☰";
+      });
+      nav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeMenu();
+      });
+      if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("js");
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
+        document.querySelectorAll(".reveal").forEach(function (node) { observer.observe(node); });
+      }
+    }());
+  </script>
+</body>
+</html>
