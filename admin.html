@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#07132b">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://yxgqmsuuvkpyisitczum.supabase.co; base-uri 'self'; object-src 'none'; form-action 'self';">
+  <title>إدارة الدعم | NileChat</title>
+  <link rel="icon" type="image/png" href="nilechat-logo.png">
+  <style>
+    :root{color-scheme:dark;--bg:#061023;--card:#102541;--card2:#0c1c35;--line:#244268;--text:#f0f7ff;--muted:#a9bdd6;--blue:#2c86f5;--cyan:#75dbff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{font-family:Tahoma,'Segoe UI',Arial,sans-serif;margin:0;background:radial-gradient(circle at 80% 0%,#102d57,transparent 40%),var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
+    a{color:var(--cyan);text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}
+    input,select,textarea{width:100%;border-radius:12px;background:#07192e;color:var(--text);border:1px solid var(--line);padding:12px 14px;outline:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--cyan)}
+    label{display:block;font-weight:700;font-size:14px;margin:11px 0 6px}
+    .wrap{width:min(1160px,calc(100% - 28px));margin:auto}.top{border-bottom:1px solid var(--line);background:rgba(6,16,35,.8)}
+    .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:72px}
+    .brand{display:flex;align-items:center;gap:10px;color:white;font-weight:900;font-size:22px;direction:ltr}
+    .brand img{width:42px;height:42px;object-fit:contain}.top-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:13px}
+    .button{background:linear-gradient(130deg,#1472ea,#2aabec);border:0;border-radius:12px;padding:11px 17px;color:white;font-weight:800;display:inline-flex;justify-content:center;align-items:center;gap:8px}
+    .button.secondary{background:#152f52;border:1px solid #325275}.button.danger{background:#71364d}.button:hover{filter:brightness(1.08)}
+    .panel{background:var(--card2);border:1px solid var(--line);padding:22px;border-radius:22px;box-shadow:0 18px 42px rgba(0,0,0,.13)}
+    .login-box{max-width:440px;margin:62px auto}.login-box h1{font-size:29px;margin:0 0 6px}.login-box p{color:var(--muted);font-size:14px;margin:0 0 14px}
+    .login-box .button{width:100%;margin-top:20px}.login-box small{display:block;color:var(--muted);margin-top:17px;line-height:1.9}
+    h1{font-size:27px;margin:0 0 7px}h2{font-size:21px;margin:0 0 13px}p{margin:0 0 11px}
+    .intro{margin:25px 0}.intro p{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+    .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 19px}.stat strong{display:block;font-size:29px;line-height:1.5}.stat span{color:var(--muted);font-size:12px}
+    .toolbar{display:grid;grid-template-columns:2fr 1fr auto auto;gap:10px;margin-bottom:18px;align-items:center}
+    .columns{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(300px,1.2fr);gap:17px;align-items:start}
+    .list{max-height:65vh;overflow:auto}.message-item{width:100%;display:block;text-align:right;direction:rtl;background:transparent;color:var(--text);border:0;border-bottom:1px solid var(--line);padding:15px 8px}
+    .message-item:last-child{border:0}.message-item.active{background:#17406f;border-radius:11px}.message-item:hover{background:#122c4d;border-radius:11px}
+    .item-row{display:flex;justify-content:space-between;gap:12px;align-items:center}.item-title{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px}
+    .item-sub{font-size:12px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .pill{display:inline-block;padding:3px 9px;border:1px solid #375b8a;border-radius:100px;font-size:11px;white-space:nowrap;color:#a9d1ff}
+    .pill.new{border-color:#a67c45;color:#f7c783}.pill.resolved{color:#6cf0b0;border-color:#38785e}
+    .details{position:sticky;top:12px;min-height:320px;word-break:break-word}.details .body-text{white-space:pre-wrap;line-height:2;border:1px solid var(--line);background:#07192e;border-radius:15px;padding:14px;margin:14px 0;min-height:84px;overflow-wrap:anywhere}
+    .details-meta{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px}.details-meta span{font-size:12px;color:var(--muted)}
+    .detail-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.empty{color:var(--muted);text-align:center;padding:34px 8px}
+    .note{font-size:12px;color:var(--muted)}.notice{padding:12px 14px;border:1px solid #41688a;background:#123253;color:#def1ff;border-radius:12px;margin:10px 0;white-space:pre-wrap}
+    .notice.error{border-color:#955d69;background:#45233b;color:#ffe2e6}
+    [hidden]{display:none!important}
+    .setup-id{overflow-wrap:anywhere;color:#aed5ff;font-size:13px;background:#0b1b34;border-radius:10px;padding:9px}
+    @media(max-width:850px){.columns{grid-template-columns:1fr}.details{position:static}.stats{grid-template-columns:repeat(2,1fr)}.toolbar{grid-template-columns:1fr 1fr}.toolbar input{grid-column:1/-1}}
+    @media(max-width:470px){.toolbar{grid-template-columns:1fr}.toolbar input{grid-column:auto}.top .wrap{min-height:66px}.brand{font-size:17px}.top-actions{gap:7px}.top-actions a{font-size:11px}.panel{padding:16px}.details-meta{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="nilechat-logo.png" alt="NileChat" width="42" height="42">NileChat <span style="font-size:13px;color:#8abfff">Admin</span></a>
+    <div class="top-actions"><a href="index.html">↗ الموقع الرئيسي</a><button id="logout-btn" class="button secondary" type="button" hidden>تسجيل الخروج</button></div>
+  </div></header>
+  <main class="wrap">
+    <section id="login-area" class="login-box panel">
+      <h1>إدارة رسائل نايل شات 🔐</h1>
+      <p>سجّل الدخول بحساب المدير المعتمد في Supabase. لن تظهر الرسائل لأي حساب غير مصرح له.</p>
+      <form id="login-form">
+        <label for="email">البريد الإلكتروني</label><input id="email" type="email" autocomplete="username" required placeholder="admin@example.com">
+        <label for="password">كلمة المرور</label><input id="password" type="password" autocomplete="current-password" required minlength="6">
+        <button id="login-btn" class="button" type="submit">دخول لوحة الإدارة</button>
+      </form>
+      <div id="login-notice" class="notice" role="status" hidden></div>
+      <div id="admin-setup" hidden><p class="note">دخلت حساباً صحيحاً لكنه غير مدرج ضمن مديري الدعم. انسخ معرّف المستخدم أدناه وأضفه إلى جدول <code>website_support_admins</code> من لوحة Supabase:</p><div class="setup-id" id="user-id"></div><button id="copy-id" class="button secondary" type="button" style="margin-top:12px">نسخ المعرّف</button></div>
+      <small>إذا لم يكن لديك حساب مدير، أنشئ مستخدماً من Supabase Authentication → Users ثم أضف معرفه إلى قائمة المديرين. لا تشارك كلمة مرورك.</small>
+    </section>
+    <section id="dashboard" hidden>
+      <div class="intro"><h1>صندوق رسائل الدعم 📩</h1><p>الرسائل القادمة من نموذج موقع NileChat. جميع الأرقام تخص الرسائل المحمّلة، بحد أقصى 250 رسالة حديثة.</p><p id="who" class="note"></p></div>
+      <div class="stats"><div class="stat"><strong id="count-all">0</strong><span>كل الرسائل</span></div><div class="stat"><strong id="count-new">0</strong><span>الجديدة</span></div><div class="stat"><strong id="count-reviewing">0</strong><span>قيد المتابعة</span></div><div class="stat"><strong id="count-done">0</strong><span>المعالجة</span></div></div>
+      <div class="toolbar"><input type="search" id="search" placeholder="بحث بالاسم أو البريد أو العنوان أو المحتوى" aria-label="بحث في الرسائل">
+      <select id="status-filter" aria-label="تصفية حالة الرسائل"><option value="all">جميع الحالات</option><option value="new">جديدة</option><option value="reviewing">قيد المتابعة</option><option value="resolved">تم الحل</option><option value="closed">مغلقة</option></select>
+      <button id="reload-btn" class="button secondary">تحديث ↻</button><button id="export-btn" class="button secondary">تصدير CSV</button></div>
+      <div id="dashboard-notice" class="notice" hidden role="status"></div>
+      <div class="columns"><div class="panel"><h2>الوارد <span class="pill" id="list-count">0</span></h2><div id="message-list" class="list"><div class="empty">لا توجد رسائل لعرضها.</div></div></div>
+      <div class="panel details"><h2 id="detail-title">تفاصيل الرسالة</h2><div id="detail-empty" class="empty">اختر رسالة من قائمة الوارد</div><div id="detail-content" hidden>
+        <div class="details-meta"><div><span>المرسل</span><div id="detail-sender"></div></div><div><span>تاريخ الوصول</span><div id="detail-date"></div></div><div><span>البريد الإلكتروني</span><div id="detail-email"></div></div><div><span>النوع</span><div id="detail-category"></div></div></div>
+        <div id="detail-body" class="body-text"></div>
+        <label for="detail-status">حالة الرسالة</label><select id="detail-status"><option value="new">جديدة</option><option value="reviewing">قيد المتابعة</option><option value="resolved">تم الحل</option><option value="closed">مغلقة</option></select>
+        <label for="detail-note">ملاحظة داخلية (غير مرئية للزائر)</label><textarea id="detail-note" rows="4" maxlength="2000" placeholder="سجّل ما تم بشأن البلاغ..."></textarea>
+        <div class="detail-actions"><button class="button" id="save-btn" type="button">حفظ التحديث</button><a class="button secondary" id="reply-btn" href="#" target="_self">الرد بالبريد ✉</a></div>
+        <p class="note" style="margin-top:13px">الرد بالبريد يفتح تطبيق البريد لديك ولا يرسل رسالة تلقائياً.</p>
+      </div></div></div>
+    </section>
+  </main>
+  <script>
+  (function(){'use strict';
+    const BASE='https://yxgqmsuuvkpyisitczum.supabase.co';
+    const KEY='sb_publishable_6SH0A671sO0f38KNx6LZBQ_m-747y52';
+    const SESSION='nilechat_site_admin_session_v4';
+    const $=id=>document.getElementById(id);
+    let session=null,allMessages=[],selectedId=null,authorized=false;
+    const labels={new:'جديدة',reviewing:'قيد المتابعة',resolved:'تم الحل',closed:'مغلقة'};
+    const categories={bug:'مشكلة',idea:'اقتراح',other:'استفسار'};
+    function notice(id,msg,bad){const el=$(id);el.textContent=msg;el.className='notice'+(bad?' error':'');el.hidden=!msg;}
+    function saveSession(){try{if(session)sessionStorage.setItem(SESSION,JSON.stringify(session));else sessionStorage.removeItem(SESSION);}catch(_){}}
+    function restoreSession(){try{const v=sessionStorage.getItem(SESSION);return v?JSON.parse(v):null;}catch(_){return null;}}
+    async function responseText(response){try{const j=await response.json();return j.msg||j.message||j.error_description||j.error||`HTTP ${response.status}`;}catch(_){return `HTTP ${response.status}`;}}
+    async function refresh(){
+      if(!session?.refresh_token)return false;
+      try{
+        const r=await fetch(BASE+'/auth/v1/token?grant_type=refresh_token',{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:session.refresh_token})});
+        if(!r.ok)throw new Error('refresh failed');session=await r.json();saveSession();return true;
+      }catch(_){session=null;saveSession();return false;}
+    }
+    async function api(path,opts={},retry=true){
+      const headers={'apikey':KEY,'Accept':'application/json',...(opts.body?{'Content-Type':'application/json'}:{}),...(session?.access_token?{'Authorization':'Bearer '+session.access_token}:{}),...(opts.headers||{})};
+      let response=await fetch(BASE+path,{...opts,headers});
+      if(response.status===401&&retry&&await refresh())return api(path,opts,false);
+      return response;
+    }
+    async function authenticate(){
+      let r=await api('/auth/v1/user');
+      if(!r.ok)return null;return r.json();
+    }
+    async function checkAccess(user){
+      const url='/rest/v1/website_support_admins?select=user_id&user_id=eq.'+encodeURIComponent(user.id)+'&limit=1';
+      const r=await api(url);if(!r.ok)throw new Error(await responseText(r));
+      return (await r.json()).length>0;
+    }
+    async function start(){
+      if(!session)return;
+      try{
+        const user=await authenticate();if(!user)throw new Error('انتهت الجلسة. سجّل الدخول مجدداً.');
+        authorized=await checkAccess(user);
+        if(!authorized){
+          $('login-area').hidden=false;$('dashboard').hidden=true;
+          $('admin-setup').hidden=false;$('logout-btn').hidden=false;$('user-id').textContent=user.id;
+          notice('login-notice','الحساب صحيح، لكنه يحتاج إذن إدارة الدعم.');return;
+        }
+        $('admin-setup').hidden=true;$('login-area').hidden=true;$('dashboard').hidden=false;$('logout-btn').hidden=false;
+        $('who').textContent='حساب المدير: '+(user.email||user.id);
+        await loadMessages();
+      }catch(err){notice('login-notice',String(err.message||err),true);session=null;saveSession();}
+    }
+    async function loadMessages(){
+      notice('dashboard-notice','جارٍ تحديث الرسائل…');
+      try{
+        const r=await api('/rest/v1/website_support_messages?select=id,sender_name,sender_email,category,subject,body,status,admin_note,created_at,updated_at&order=created_at.desc&limit=250');
+        if(!r.ok)throw new Error(await responseText(r));
+        allMessages=await r.json();
+        if(!Array.isArray(allMessages))throw new Error('استجابة غير متوقعة');
+        notice('dashboard-notice','');render();
+      }catch(err){notice('dashboard-notice','تعذر تحميل الرسائل: '+err.message,true);}
+    }
+    function el(tag,txt,cls){const node=document.createElement(tag);if(cls)node.className=cls;if(txt!==undefined)node.textContent=String(txt);return node;}
+    function date(v){return v?new Date(v).toLocaleString('ar-SD',{dateStyle:'medium',timeStyle:'short'}):'—';}
+    function render(){
+      $('count-all').textContent=allMessages.length;$('count-new').textContent=allMessages.filter(x=>x.status==='new').length;
+      $('count-reviewing').textContent=allMessages.filter(x=>x.status==='reviewing').length;
+      $('count-done').textContent=allMessages.filter(x=>['resolved','closed'].includes(x.status)).length;
+      const text=$('search').value.trim().toLowerCase(),filter=$('status-filter').value;
+      const filtered=allMessages.filter(x=>(filter==='all'||x.status===filter)&&[x.sender_name,x.sender_email,x.subject,x.body].some(s=>String(s||'').toLowerCase().includes(text)));
+      $('list-count').textContent=filtered.length;
+      const list=$('message-list');list.replaceChildren();
+      if(!filtered.length)list.append(el('div','لا توجد رسائل مطابقة.','empty'));
+      filtered.forEach(msg=>{
+        const btn=el('button',undefined,'message-item'+(selectedId===msg.id?' active':''));btn.type='button';btn.addEventListener('click',()=>{selectedId=msg.id;render();});
+        const line=el('div',undefined,'item-row');line.append(el('span',msg.subject,'item-title'),el('span',labels[msg.status]||msg.status,'pill '+msg.status));
+        btn.append(line,el('div',msg.sender_name+' · '+date(msg.created_at),'item-sub'));list.append(btn);
+      });
+      const msg=allMessages.find(x=>x.id===selectedId);$('detail-empty').hidden=!!msg;$('detail-content').hidden=!msg;if(!msg)return;
+      $('detail-title').textContent=msg.subject;$('detail-sender').textContent=msg.sender_name;
+      $('detail-email').textContent=msg.sender_email;$('detail-category').textContent=categories[msg.category]||msg.category;
+      $('detail-date').textContent=date(msg.created_at);$('detail-body').textContent=msg.body;
+      $('detail-status').value=msg.status;$('detail-note').value=msg.admin_note||'';
+      $('reply-btn').href='mailto:'+encodeURIComponent(msg.sender_email)+'?subject='+encodeURIComponent('رد على رسالتك إلى نايل شات: '+msg.subject)+'&body='+encodeURIComponent('مرحباً '+msg.sender_name+'،\n\nبخصوص رسالتك: '+msg.subject+'\n\n');
+    }
+    async function save(){
+      const msg=allMessages.find(x=>x.id===selectedId);if(!msg)return;
+      const status=$('detail-status').value,note=$('detail-note').value.trim();if(!labels[status])return;
+      $('save-btn').disabled=true;
+      try{
+        const r=await api('/rest/v1/website_support_messages?id=eq.'+encodeURIComponent(msg.id),{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify({status,admin_note:note,updated_at:new Date().toISOString()})});
+        if(!r.ok)throw new Error(await responseText(r));msg.status=status;msg.admin_note=note;render();notice('dashboard-notice','تم حفظ حالة الرسالة والملاحظة بنجاح.');
+      }catch(err){notice('dashboard-notice','فشل الحفظ: '+err.message,true);}finally{$('save-btn').disabled=false;}
+    }
+    function exportCSV(){
+      if(!allMessages.length)return;
+      // Prefix spreadsheet-control characters to prevent CSV formula injection.
+      const escape=v=>{let s=String(v??'');if(/^[\s]*[=+@-]/.test(s))s="'"+s;return '"'+s.replaceAll('"','""')+'"';};
+      const cols=['id','created_at','sender_name','sender_email','category','subject','body','status','admin_note'];
+      const csv='\ufeff'+cols.join(',')+'\r\n'+allMessages.map(x=>cols.map(k=>escape(x[k])).join(',')).join('\r\n');
+      const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+      a.href=url;a.download='NileChat_Support_'+new Date().toISOString().slice(0,10)+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);
+    }
+    $('login-form').addEventListener('submit',async ev=>{
+      ev.preventDefault();const btn=$('login-btn');btn.disabled=true;notice('login-notice','جارٍ التحقق من الحساب…');
+      try{
+        const r=await fetch(BASE+'/auth/v1/token?grant_type=password',{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify({email:$('email').value.trim(),password:$('password').value})});
+        if(!r.ok)throw new Error(await responseText(r));session=await r.json();saveSession();$('password').value='';await start();
+      }catch(err){notice('login-notice','تعذر الدخول: '+err.message,true);}finally{btn.disabled=false;}
+    });
+    $('logout-btn').addEventListener('click',async()=>{try{await api('/auth/v1/logout',{method:'POST'});}catch(_){}session=null;authorized=false;saveSession();$('dashboard').hidden=true;$('login-area').hidden=false;$('logout-btn').hidden=true;notice('login-notice','تم تسجيل الخروج.');});
+    $('search').addEventListener('input',render);$('status-filter').addEventListener('change',render);
+    $('reload-btn').addEventListener('click',loadMessages);$('save-btn').addEventListener('click',save);$('export-btn').addEventListener('click',exportCSV);
+    $('copy-id').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('user-id').textContent);notice('login-notice','تم نسخ المعرّف.');}catch(_){notice('login-notice','انسخ المعرّف يدوياً.');}});
+    session=restoreSession();if(session)start();
+  }());
+  </script>
+</body>
+</html>
