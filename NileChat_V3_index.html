@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07132b">
+  <meta name="description" content="نايل شات NileChat — نبض التواصل السوداني. اكتشف المحادثات والنبضات والروافد والمجالس، وحمّل أحدث إصدار من التطبيق.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NileChat | نايل شات">
+  <meta property="og:description" content="تواصل أقرب.. تجربة أجمل. الموقع الرسمي لنايل شات.">
+  <meta property="og:url" content="https://katemkoo.github.io/nilechat-website/">
+  <meta property="og:image" content="https://katemkoo.github.io/nilechat-website/nilechat-hero.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="nilechat-logo.png">
+  <link rel="preconnect" href="https://api.github.com" crossorigin>
+  <style>
+/* NileChat Website — static, responsive, bilingual, GitHub Pages compatible */
+:root {
+  color-scheme: dark;
+  --bg: #060f22;
+  --bg2: #0a1830;
+  --panel: #102340;
+  --panel2: #132a49;
+  --panel3: #0c1d36;
+  --text: #eff6ff;
+  --muted: #a4b7d2;
+  --hair: rgba(162,199,253,.15);
+  --blue: #449bff;
+  --blue2: #246bff;
+  --cyan: #63e1ff;
+  --shadow: 0 24px 65px rgba(0,0,0,.27);
+  --white: #fff;
+  --max: 1180px;
+}
+*,*::before,*::after {box-sizing:border-box}
+html {scroll-behavior:smooth;scroll-padding-top:92px}
+body {margin:0;background:var(--bg);color:var(--text);font:16px/1.8 Tahoma,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
+a {text-decoration:none;color:inherit}
+img {display:block;max-width:100%}
+button,input,textarea,select {font:inherit}
+button {cursor:pointer}
+button:disabled {opacity:.5;cursor:not-allowed}
+::selection {color:white;background:#3375ef}
+:focus-visible {outline:3px solid #67dffc;outline-offset:4px;border-radius:5px}
+[hidden] {display:none!important}
+.wrap {width:min(calc(100% - 40px),var(--max));margin-inline:auto}
+.skip-link {position:absolute;inset-block-start:-100px;inset-inline-start:20px;padding:8px 18px;border-radius:9px;background:white;color:#061b3c;z-index:999}
+.skip-link:focus {inset-block-start:10px}
+.header {position:sticky;top:0;z-index:99;background:rgba(6,15,34,.88);border-bottom:1px solid var(--hair);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.header-inner {height:80px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.logo {display:inline-flex;gap:10px;align-items:center;direction:ltr;font-size:24px;font-weight:900;white-space:nowrap;line-height:1.2;letter-spacing:-.8px}
+.logo img {width:45px;height:45px;object-fit:contain;border-radius:12px}
+.brand-tint,.footer-brand span {color:var(--cyan)}
+.nav {display:flex;align-items:center;gap:23px}
+.nav a {font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap;transition:color .2s}
+.nav a:hover,.nav a:focus-visible {color:var(--text)}
+.header-actions {display:flex;align-items:center;gap:9px}
+.square-btn {width:39px;height:39px;display:inline-grid;place-items:center;border:1px solid var(--hair);border-radius:11px;background:rgba(255,255,255,.045);color:var(--text);font-size:12px;font-weight:800;transition:background .2s}
+.square-btn:hover {background:rgba(97,161,255,.16)}
+#theme-toggle {font-size:22px;line-height:1}
+.head-download {font-size:13px;font-weight:800;border-radius:11px;background:linear-gradient(115deg,#1d72eb,#20abef);padding:8px 17px;white-space:nowrap;color:white}
+.head-download:hover {filter:brightness(1.1)}
+.mobile-toggle {display:none;font-size:21px}
+.hero {position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse 45% 60% at 4% 5%,rgba(53,101,242,.22),transparent),radial-gradient(ellipse 44% 58% at 90% 87%,rgba(1,156,245,.17),transparent),linear-gradient(165deg,#0a1c3b,var(--bg) 75%);padding:86px 0 104px;min-height:620px}
+.hero::before {content:"";z-index:-1;position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(120,180,255,.2) .8px,transparent .8px);background-size:26px 26px;mask-image:linear-gradient(to bottom,#000,transparent 94%)}
+.hero-sparks {position:absolute;pointer-events:none;width:500px;height:500px;border:1px solid rgba(74,148,255,.14);border-radius:50%;inset-block-start:3%;inset-inline-end:-300px;box-shadow:0 0 0 90px rgba(87,161,255,.025),0 0 0 180px rgba(87,161,255,.02)}
+.hero-grid {display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.eyebrow,.kicker {font-size:12px;font-weight:900;letter-spacing:1.4px;color:var(--cyan)}
+.eyebrow {display:inline-flex;align-items:center;gap:11px;padding:7px 15px;background:rgba(75,146,255,.11);border:1px solid rgba(121,181,255,.24);color:#bddbff;border-radius:100px;letter-spacing:0}
+.signal {width:8px;height:8px;background:var(--cyan);box-shadow:0 0 15px var(--cyan);border-radius:50%;flex:none}
+.hero h1 {font-size:clamp(42px,5vw,70px);font-weight:900;line-height:1.32;letter-spacing:-1.5px;margin:19px 0 16px}
+.grad {color:#7cbcff;background:linear-gradient(120deg,#a7d4ff,#4a9dff 50%,#63e4fa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-lead {font-size:17px;color:var(--muted);margin:0 0 30px;max-width:530px}
+.actions {display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn {display:inline-flex;justify-content:center;align-items:center;gap:10px;border:1px solid transparent;border-radius:14px;padding:11px 23px;min-height:52px;font-weight:800;font-size:14px;white-space:nowrap;transition:transform .25s,box-shadow .25s,background .25s;color:var(--text)}
+.btn:hover {transform:translateY(-3px)}
+.btn-primary {background:linear-gradient(115deg,#216bf4,#25b8f1);color:white;box-shadow:0 15px 35px rgba(37,109,238,.26)}
+.btn-primary:hover {box-shadow:0 17px 41px rgba(37,109,238,.37)}
+.btn-soft {background:rgba(255,255,255,.045);border-color:rgba(145,190,255,.23)}
+.btn-soft:hover {background:rgba(117,171,255,.12)}
+.hero-facts {display:flex;gap:12px 18px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:23px}
+.hero-facts>span:first-letter {color:var(--cyan)}
+.hero-art {height:480px;position:relative;display:grid;place-items:center;isolation:isolate;perspective:1200px;min-width:0}
+.orbit {position:absolute;border-radius:50%;pointer-events:none;inset:10%;z-index:-1}
+.orbit-one {border:1px solid rgba(103,176,255,.18);transform:rotate(-16deg) scaleX(1.15);box-shadow:0 0 0 70px rgba(43,99,233,.024)}
+.orbit-two {background:radial-gradient(circle,rgba(32,117,254,.37),transparent 67%);filter:blur(44px);inset:7%;opacity:.75;animation:glow 6s ease-in-out infinite alternate}
+.hero-image-tilt {position:relative;transform:rotateY(-9deg) rotateX(5deg);animation:levitate 7s ease-in-out infinite;transition:transform .28s;max-width:475px;width:87%;border:1px solid rgba(147,194,255,.32);border-radius:31px;padding:10px;background:linear-gradient(140deg,rgba(105,175,255,.29),rgba(255,255,255,.045));box-shadow:0 30px 80px rgba(0,0,0,.34),0 3px 25px rgba(80,165,255,.14)}
+.hero-image-inner {border-radius:22px;overflow:hidden;background:#132547}
+.hero-image-inner img {width:100%;height:auto;object-fit:contain}
+.floating-note {position:absolute;z-index:2;display:flex;gap:10px;align-items:center;border:1px solid rgba(168,206,255,.29);border-radius:14px;padding:10px 14px;background:rgba(11,30,56,.9);box-shadow:0 12px 35px rgba(0,0,0,.24);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:12px;font-weight:900;white-space:nowrap;animation:drift 5s ease-in-out infinite}
+.note-emoji {display:grid;place-items:center;background:rgba(68,155,255,.22);border-radius:10px;width:33px;height:33px;font-size:19px}
+.note-one {inset-block-start:9%;inset-inline-start:-1%}
+.note-two {inset-block-end:9%;inset-inline-end:-1%;animation-delay:-2.3s}
+.scroll-cue {position:absolute;bottom:12px;left:calc(50% - 15px);width:30px;text-align:center;font-size:30px;color:#9cc7fe;animation:drift 2s ease-in-out infinite}
+.section {padding:94px 0}
+.section-head {text-align:center;margin:0 auto 43px;max-width:760px}
+.section-head h2 {font-size:clamp(28px,3.3vw,42px);line-height:1.35;margin:8px 0 9px}
+.section-head p {color:var(--muted);margin:0}
+.benefits {background:linear-gradient(#091831,#09162d)}
+.feature-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.feature-card {position:relative;overflow:hidden;border:1px solid var(--hair);border-radius:22px;padding:29px 22px;background:linear-gradient(145deg,rgba(23,51,91,.82),rgba(10,26,52,.9));min-height:235px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.feature-card::after {position:absolute;content:"";width:100px;height:100px;left:-38px;top:-40px;border-radius:50%;background:rgba(39,158,242,.12);filter:blur(19px)}
+.feature-card:hover {transform:translateY(-7px);border-color:rgba(104,179,255,.5);box-shadow:0 19px 40px rgba(0,0,0,.2)}
+.feature-glyph {width:62px;height:62px;display:grid;place-items:center;border-radius:17px;background:linear-gradient(130deg,rgba(51,119,235,.33),rgba(43,191,236,.12));border:1px solid rgba(116,173,253,.19);font-size:28px;margin-bottom:18px}
+.feature-card h3 {margin:0 0 8px;font-size:19px}
+.feature-card p {margin:0;color:var(--muted);font-size:13px;line-height:1.95}
+.showcase {background:var(--bg)}
+.gallery-layout {border:1px solid var(--hair);background:linear-gradient(120deg,var(--bg2),var(--panel3));border-radius:32px;padding:34px;display:grid;grid-template-columns:220px minmax(0,1fr) 240px;gap:30px;align-items:center}
+.gallery-tabs {display:grid;gap:12px}
+.gallery-tab {display:flex;align-items:center;gap:15px;text-align:start;width:100%;padding:17px 15px;border-radius:15px;background:rgba(255,255,255,.035);border:1px solid var(--hair);color:var(--muted);font-weight:800;font-size:14px;transition:.2s}
+.gallery-tab b {font-size:21px;line-height:1}
+.gallery-tab:hover,.gallery-tab.active {color:var(--text);background:rgba(48,121,236,.2);border-color:rgba(87,162,255,.62)}
+.gallery-stage {display:grid;place-items:center;gap:12px;min-width:0}
+.phone-shell {position:relative;width:min(100%,273px);aspect-ratio:9/18.8;border:8px solid #101a2a;border-radius:38px;padding:16px 7px 9px;background:#101a2a;overflow:hidden;box-shadow:0 20px 55px rgba(0,0,0,.46),inset 0 0 0 1px #526c90}
+.phone-camera {position:absolute;top:11px;left:50%;transform:translateX(-50%);border-radius:0 0 14px 14px;background:#101a2a;height:13px;width:82px;z-index:4}
+.phone-screen {height:100%;overflow:hidden;border-radius:24px;background:#e8f2ff;color:#16315f;display:flex;flex-direction:column}
+.phone-top {display:flex;justify-content:space-between;align-items:center;gap:5px;background:#1866c8;color:white;padding:29px 12px 11px;font-size:15px;font-weight:900}
+.phone-sub {display:flex;gap:7px;padding:10px;background:#fff;border-bottom:1px solid #e1e9f3;font-size:10px;color:#64799a;justify-content:space-between}
+.phone-sub strong {color:#2269c6}
+.mock-list {background:#f3f7ff;flex:1;overflow:hidden}
+.mock-person {display:flex;align-items:center;gap:8px;padding:11px 9px;border-bottom:1px solid #e4edfa}
+.mock-avatar {flex:none;width:33px;height:33px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(125deg,#2b71d4,#74ccf5);color:white;font-size:13px;font-weight:bold}
+.mock-person .who {flex:1;min-width:0;font-size:11px;font-weight:bold;line-height:1.6}
+.mock-person .who small {color:#8492a8;font-size:9px;font-weight:normal;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mock-person .when {font-size:8px;color:#758baa;white-space:nowrap}
+.mock-pill {font-size:9px;color:#1b68d3;background:#dceaff;border-radius:50px;padding:2px 7px}
+.mock-cards {padding:12px;display:grid;gap:10px;overflow:auto}
+.mock-story {background:#fff;box-shadow:0 3px 10px rgba(0,0,0,.04);border-radius:12px;overflow:hidden;border:1px solid #e6edfa}
+.mock-story .story-art {height:94px;background:linear-gradient(120deg,#1548af,#36b7ef);display:grid;place-items:center;color:white;font-size:36px}
+.mock-story .story-bottom {padding:8px 10px;font-size:10px;color:#466080}
+.mock-post {padding:13px;background:white;border-radius:12px;border:1px solid #e5edf7;font-size:10px;color:#4f6480}
+.mock-post b {display:block;color:#1b4277;margin-bottom:5px;font-size:11px}
+.mock-group {display:flex;align-items:center;gap:9px;background:white;border:1px solid #e7edf6;border-radius:12px;padding:13px 9px;font-size:11px;color:#32517d}
+.mock-group b {display:block}
+.mock-group small {font-size:9px;color:#879ab4}
+.mock-compose {background:white;padding:10px;font-size:9px;color:#91a4bf;display:flex;justify-content:space-between}
+.real-screenshot {position:absolute;inset:16px 7px 9px;width:calc(100% - 14px);height:calc(100% - 25px);border-radius:23px;object-fit:cover;background:#e7f2ff;z-index:3}
+.preview-disclaimer,.disclosure {font-size:12px;color:var(--muted);text-align:center}
+.gallery-controls {display:flex;gap:13px;align-items:center;font-size:13px;color:var(--muted)}
+.small-arrow {width:34px;height:34px;border-radius:10px;color:var(--text);background:var(--panel);border:1px solid var(--hair);font-size:23px;line-height:1}
+.gallery-caption h3 {font-size:28px;margin:12px 0 5px}
+.gallery-caption p {color:var(--muted);font-size:14px;line-height:2}
+.releases {background:linear-gradient(var(--bg2),#08172c)}
+.stats-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin-bottom:22px}
+.stat {border:1px solid var(--hair);background:rgba(18,39,71,.68);padding:22px 27px;border-radius:20px;display:grid;gap:4px}
+.stat span {font-size:13px;color:var(--muted)}
+.stat strong {font-size:32px;line-height:1.45;direction:ltr;text-align:start}
+.release-layout {display:grid;grid-template-columns:1.4fr .85fr;gap:21px}
+.latest-release,.release-list-box {border:1px solid var(--hair);background:rgba(15,33,59,.83);border-radius:24px;padding:29px}
+.release-top {display:flex;gap:10px;align-items:center;justify-content:space-between}
+.version-pill {border-radius:11px;padding:5px 14px;font-size:13px;background:rgba(61,145,252,.2);color:#a1cbff;font-weight:900;direction:ltr}
+.live-pill {font-size:12px;color:#b0dbea;display:flex;align-items:center;gap:8px}
+.status-dot {width:7px;height:7px;border-radius:50%;background:#5bd6bd;box-shadow:0 0 12px #5bd6bd}
+.latest-release h3 {font-size:26px;margin:13px 0 0}
+.release-meta {color:#8ea4c1;margin:3px 0 13px;font-size:12px}
+.release-summary {color:#bbccdf;font-size:14px;white-space:pre-line;max-height:225px;overflow:auto;margin-bottom:24px;line-height:1.95}
+.source-note {font-size:12px;color:#92b9d7;margin:19px 0 0}
+.release-list-box h3 {margin:0 0 13px;font-size:20px}
+.release-history {display:grid;gap:7px;margin-bottom:20px}
+.history-row {padding:11px 0;border-bottom:1px solid var(--hair);display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px}
+.history-row strong {direction:ltr}
+.history-row span {color:var(--muted);font-size:12px}
+.minor-link {font-size:13px;color:#82c8ff;font-weight:bold}
+.disclosure {margin:18px 0 0;text-align:start}
+.roadmap {background:var(--bg)}
+.roadmap-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.roadmap-item {border:1px solid var(--hair);border-radius:20px;padding:23px;background:linear-gradient(160deg,var(--panel),var(--panel3));min-height:225px}
+.stage {display:inline-block;border-radius:30px;padding:3px 12px;font-size:11px;font-weight:800}
+.stage.done {background:rgba(57,187,142,.14);color:#77e7c0}
+.stage.improving {background:rgba(83,166,255,.16);color:#a4d0ff}
+.stage.idea {background:rgba(252,194,101,.12);color:#f6c987}
+.roadmap-emoji {font-size:34px;margin-top:14px}
+.roadmap-item h3 {font-size:17px;margin:5px 0}
+.roadmap-item p {font-size:13px;color:var(--muted);margin:0}
+.support {background:linear-gradient(120deg,#071932,#0a1830)}
+.support-grid {display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.support-copy h2 {font-size:clamp(29px,4vw,42px);margin:10px 0}
+.support-copy>p {color:var(--muted)}
+.support-bullets {margin-top:24px;color:#d5e7fc;font-size:14px}
+.support-form {padding:31px;border:1px solid var(--hair);border-radius:24px;background:var(--panel3);display:grid;gap:9px;box-shadow:var(--shadow)}
+.support-form label {font-size:13px;font-weight:800;margin-top:7px}
+.support-form input,.support-form textarea,.support-form select {width:100%;color:var(--text);background:var(--bg2);border:1px solid rgba(152,192,245,.27);border-radius:11px;padding:11px 13px;outline:none}
+.support-form input:focus,.support-form textarea:focus,.support-form select:focus {border-color:#79c6ff;box-shadow:0 0 0 3px rgba(52,137,250,.16)}
+.support-form textarea {resize:vertical;min-height:112px}
+.support-form input::placeholder,.support-form textarea::placeholder {color:#7f98b5}
+.form-note {font-size:12px;color:var(--muted);line-height:1.7}
+.full-btn {width:100%;margin-top:5px}
+.faq {background:var(--bg)}
+.faq-wrap {max-width:850px}
+.faq-item {border:1px solid var(--hair);border-radius:15px;padding:0 21px;margin:10px 0;background:var(--panel3)}
+.faq-item summary {cursor:pointer;font-size:15px;font-weight:800;padding:17px 0}
+.faq-item summary::marker {color:var(--blue)}
+.faq-item p {font-size:14px;color:var(--muted);margin:0 0 17px}
+.download-section {padding:0 0 95px;background:var(--bg)}
+.download-panel {position:relative;overflow:hidden;padding:65px 20px;text-align:center;border:1px solid rgba(152,215,255,.26);border-radius:33px;background:radial-gradient(ellipse at 12% 20%,rgba(20,255,255,.12),transparent 42%),radial-gradient(ellipse at 85% 85%,rgba(155,127,255,.22),transparent 42%),linear-gradient(120deg,#1053ae,#006eaf);box-shadow:0 18px 50px rgba(20,106,204,.17)}
+.download-orb {position:absolute;inset-inline-start:8%;inset-block-start:20%;opacity:.15;font-size:100px;line-height:1;pointer-events:none}
+.kicker.light {color:#a8eeff}
+.download-panel h2 {font-size:clamp(29px,4vw,44px);margin:9px 0}
+.download-panel p {margin:0 auto 21px;color:#ecf8ff}
+.btn-white {background:white;color:#0d5ead;box-shadow:0 10px 28px rgba(0,0,0,.17)}
+.download-version {margin-top:15px;font-size:12px;color:#cee7f7;direction:ltr}
+.footer {background:#050c1a;border-top:1px solid var(--hair)}
+.footer-grid {display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding:44px 0}
+.footer-grid>div {display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+.footer-brand {font-weight:900;font-size:26px;direction:ltr}
+.footer-grid strong {font-size:14px;margin-bottom:4px}
+.footer-grid p,.footer-grid a:not(.footer-brand) {font-size:13px;color:var(--muted);margin:0}
+.footer-grid a:hover {color:white!important}
+.footer-bottom {padding:15px 0 25px;border-top:1px solid var(--hair);font-size:12px;color:#8a9db9;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* Separate privacy page */
+.legal {padding:70px 0 100px;max-width:790px}
+.legal h1 {font-size:clamp(29px,4vw,45px)}
+.legal h2 {font-size:22px;margin-top:30px}
+.legal p,.legal li {color:var(--muted)}
+.legal-card {border:1px solid var(--hair);border-radius:20px;padding:25px;background:var(--panel3)}
+@keyframes glow {to {transform:scale(1.15);opacity:.5}}
+@keyframes drift {50% {transform:translateY(-12px)}}
+@keyframes levitate {50% {transform:rotateY(-7deg) rotateX(3deg) translateY(-13px)}}
+/* Scroll animation only after JS installs an observer */
+.has-io .rise {opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.has-io .rise.visible {opacity:1;transform:none}
+/* Light theme */
+[data-theme="light"] {color-scheme:light;--bg:#f4f9ff;--bg2:#eaf3ff;--panel:#fff;--panel2:#edf5ff;--panel3:#fff;--text:#152947;--muted:#536982;--hair:rgba(30,85,165,.17);--shadow:0 22px 52px rgba(31,78,145,.13)}
+[data-theme="light"] .header {background:rgba(255,255,255,.9)}
+[data-theme="light"] .hero {background:radial-gradient(ellipse at 10% 18%,#d9ecff,transparent 45%),linear-gradient(150deg,#f7fbff,#eaf5ff)}
+[data-theme="light"] .hero::before {background-image:radial-gradient(rgba(61,128,210,.23) .8px,transparent .8px)}
+[data-theme="light"] .eyebrow {color:#2465a7;background:rgba(33,135,255,.09)}
+[data-theme="light"] .hero-lead,[data-theme="light"] .hero-facts {color:#4c6585}
+[data-theme="light"] .grad {background:linear-gradient(120deg,#1253c2,#1581e2 55%,#159ec1);-webkit-background-clip:text;background-clip:text}
+[data-theme="light"] .benefits {background:linear-gradient(#eaf3ff,#f4f9ff)}
+[data-theme="light"] .feature-card,[data-theme="light"] .roadmap-item {background:linear-gradient(150deg,#fff,#eef5ff)}
+[data-theme="light"] .showcase,[data-theme="light"] .roadmap,[data-theme="light"] .faq,[data-theme="light"] .download-section {background:#f4f9ff}
+[data-theme="light"] .gallery-layout,[data-theme="light"] .support {background:#eaf3ff}
+[data-theme="light"] .gallery-tab {background:#fff}
+[data-theme="light"] .gallery-tab.active,[data-theme="light"] .gallery-tab:hover {background:#dcecff}
+[data-theme="light"] .releases {background:#eef6ff}
+[data-theme="light"] .stat,[data-theme="light"] .latest-release,[data-theme="light"] .release-list-box {background:#fff}
+[data-theme="light"] .release-summary,[data-theme="light"] .support-bullets {color:#536982}
+[data-theme="light"] .support-form {background:#fff}
+[data-theme="light"] .support-form input,[data-theme="light"] .support-form textarea,[data-theme="light"] .support-form select {background:#f4f9ff}
+[data-theme="light"] .footer {background:#e5f0fe}
+[data-theme="light"] .footer-grid a:not(.footer-brand):hover {color:#1e68b7!important}
+[data-theme="light"] .btn-soft {background:rgba(43,115,221,.08)}
+[data-theme="light"] .note-one,[data-theme="light"] .note-two {background:rgba(16,45,80,.92);color:white}
+[data-theme="light"] .stage.done {color:#127657}
+[data-theme="light"] .stage.improving {color:#2261af}
+[data-theme="light"] .stage.idea {color:#91630e}
+@media (max-width:1120px) {
+ .nav {gap:13px}.nav a {font-size:12px}.header-inner {gap:12px}
+ .gallery-layout {grid-template-columns:165px minmax(0,1fr) 190px;gap:18px}
+ .hero-grid {gap:35px}
+}
+@media (max-width:950px) {
+ .feature-grid,.roadmap-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+ .hero h1 {font-size:clamp(39px,5vw,55px)}
+ .gallery-layout {grid-template-columns:1fr 1fr;grid-template-areas:"tabs caption" "stage stage"}
+ .gallery-tabs {grid-area:tabs}.gallery-caption {grid-area:caption}.gallery-stage {grid-area:stage}
+ .gallery-tabs {grid-template-columns:repeat(2,1fr)}
+ .gallery-tab {padding:12px;gap:6px}
+}
+@media (max-width:780px) {
+ .header-inner {height:68px}.mobile-toggle {display:grid}
+ .nav {position:absolute;top:68px;inset-inline:0;display:none;padding:12px 20px 18px;flex-direction:column;align-items:stretch;gap:4px;background:var(--bg2);box-shadow:0 20px 35px rgba(0,0,0,.18);border-bottom:1px solid var(--hair)}
+ .nav.open {display:flex}.nav a {padding:10px 15px;font-size:14px;border-radius:10px}.nav a:hover {background:rgba(71,153,255,.09)}
+ .head-download {display:none}
+ .hero-grid,.support-grid,.release-layout {grid-template-columns:1fr}
+ .hero {padding:60px 0 75px}.hero-grid {gap:23px}
+ .hero-copy {text-align:center}.hero-lead {margin-inline:auto}.actions,.hero-facts {justify-content:center}
+ .hero-art {max-width:540px;width:100%;margin-inline:auto;height:auto;min-height:385px}
+ .hero-image-tilt {max-width:360px;transform:none;animation:mobilefloat 7s ease-in-out infinite}
+ .note-one {inset-inline-start:0}.note-two {inset-inline-end:0}
+ .section {padding:70px 0}.download-section {padding:0 0 70px}
+ .gallery-layout {padding:23px}
+ .footer-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+}
+@keyframes mobilefloat {50% {transform:translateY(-10px)}}
+@media (max-width:520px) {
+ .wrap {width:calc(100% - 30px)}.logo {font-size:21px}.logo img {width:40px;height:40px}
+ .hero h1 {font-size:42px;letter-spacing:-1px}.hero-lead {font-size:14px}.hero .btn {flex:1;min-width:135px}
+ .hero-art {min-height:365px}.floating-note {font-size:10px;padding:8px}.note-emoji {width:28px;height:28px;font-size:15px}
+ .feature-grid,.roadmap-grid,.stats-grid {grid-template-columns:1fr}.stat {padding:17px 22px}.stat strong {font-size:28px}
+ .gallery-layout {display:flex;flex-direction:column;align-items:stretch;gap:25px;padding:21px 14px}
+ .gallery-tabs {display:grid;grid-template-columns:1fr 1fr;gap:8px}.gallery-tab {font-size:12px}.gallery-tab b {font-size:17px}
+ .gallery-caption {text-align:center;order:2}.gallery-stage {order:1}.gallery-tabs {order:0}.gallery-caption h3 {font-size:21px}
+ .phone-shell {max-width:240px}.gallery-stage {min-width:0}.section-head {margin-bottom:30px}
+ .latest-release,.release-list-box,.support-form {padding:21px}.latest-release .actions .btn {flex:1}
+ .footer-grid {grid-template-columns:1fr 1fr}.footer-grid>div:first-child {grid-column:1/-1}
+ .download-panel {padding:44px 15px}.download-panel .btn {max-width:100%}
+}
+@media (prefers-reduced-motion:reduce) {
+ html {scroll-behavior:auto} *,*::before,*::after {animation:none!important;transition:none!important}
+ .has-io .rise {opacity:1!important;transform:none!important}
+ .hero-image-tilt {transform:none!important}
+}
+
+</style>
+  
+  <title>NileChat | نايل شات</title>
+</head>
+<body>
+  <a class="skip-link" href="#content" data-i18n="skip">الانتقال إلى المحتوى</a>
+  <header class="header" id="top">
+    <div class="wrap header-inner">
+      <a class="logo" href="#home" aria-label="NileChat Home">
+        <img src="nilechat-logo.png" width="43" height="43" alt="NileChat Logo">
+        <span>Nile<span class="brand-tint">Chat</span></span>
+      </a>
+      <nav class="nav" id="main-nav" aria-label="Navigation">
+        <a href="#home" data-i18n="navHome">الرئيسية</a>
+        <a href="#features" data-i18n="navFeatures">المميزات</a>
+        <a href="#gallery" data-i18n="navGallery">المعرض</a>
+        <a href="#releases" data-i18n="navUpdates">التحديثات</a>
+        <a href="#roadmap" data-i18n="navRoadmap">خارطة التطوير</a>
+        <a href="#support" data-i18n="navHelp">الدعم</a>
+      </nav>
+      <div class="header-actions">
+        <button class="square-btn" id="language-toggle" type="button" aria-label="Switch website language" title="English / العربية">EN</button>
+        <button class="square-btn" id="theme-toggle" type="button" aria-label="Switch appearance" title="تغيير المظهر"><span aria-hidden="true">☼</span></button>
+        <a class="head-download" href="#download" data-i18n="navDownload">تحميل التطبيق</a>
+        <button class="square-btn mobile-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="فتح القائمة">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" id="home">
+      <div class="hero-sparks" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy rise">
+          <div class="eyebrow"><span class="signal"></span><span data-i18n="heroLabel">🇸🇩 نبض التواصل السوداني</span></div>
+          <h1><span data-i18n="heroTitle">قرب المسافات.</span><br><span class="grad" data-i18n="heroTitleSecond">خلّي التواصل ينبض.</span></h1>
+          <p class="hero-lead" data-i18n="heroDesc">نايل شات يجمع المحادثات والنبضات والروافد والمجالس في تجربة واحدة عصرية، مصممة لتكون أقرب إليك.</p>
+          <div class="actions">
+            <a class="btn btn-primary download-link" href="https://github.com/katemkoo/NileChat-Updates/releases/download/v2.1/NileChat.apk"><span aria-hidden="true">↓</span><span data-i18n="downloadNow">حمّل نايل شات</span></a>
+            <a class="btn btn-soft" href="#gallery"><span aria-hidden="true">◉</span><span data-i18n="explore">استكشف التطبيق</span></a>
+          </div>
+          <div class="hero-facts">
+            <span>✓ <span data-i18n="android">لأجهزة Android</span></span>
+            <span>✓ <span data-i18n="free">تحميل مجاني</span></span>
+            <span>✓ <span id="hero-version">v2.1</span></span>
+          </div>
+        </div>
+        <div class="hero-art rise" aria-label="NileChat visual">
+          <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
+          <div class="hero-image-tilt" id="hero-tilt">
+            <div class="hero-image-inner"><img src="nilechat-hero.png" alt="الصورة التعريفية الأصلية لتطبيق NileChat" width="550" height="550" fetchpriority="high"></div>
+          </div>
+          <div class="floating-note note-one" aria-hidden="true"><span class="note-emoji">💬</span><span data-i18n="floatChats">المحادثات تجمعنا</span></div>
+          <div class="floating-note note-two" aria-hidden="true"><span class="note-emoji">💙</span><span data-i18n="floatPulses">شارك نبضتك</span></div>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">⌄</div>
+    </section>
+
+    <section class="section benefits" id="features">
+      <div class="wrap">
+        <div class="section-head rise"><span class="kicker">NILECHAT FEATURES</span><h2 data-i18n="featuresTitle">كل عالمك في مكان واحد</h2><p data-i18n="featuresDesc">مساحات متنوعة للتواصل ومشاركة اللحظات والأفكار.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card rise"><div class="feature-glyph">💬</div><h3 data-i18n="featChat">المحادثات</h3><p data-i18n="featChatDesc">شارك الرسائل والصور والملفات والوسائط في محادثاتك اليومية.</p></article>
+          <article class="feature-card rise"><div class="feature-glyph">💙</div><h3 data-i18n="featPulse">النبضات</h3><p data-i18n="featPulseDesc">شارك لحظاتك، وتابع ما ينشره أصدقاؤك.</p></article>
+          <article class="feature-card rise"><div class="feature-glyph">📡</div><h3 data-i18n="featFeed">الروافد</h3><p data-i18n="featFeedDesc">اكتشف المحتوى والتحديثات التي تهمك.</p></article>
+          <article class="feature-card rise"><div class="feature-glyph">👥</div><h3 data-i18n="featGroups">المجالس</h3><p data-i18n="featGroupsDesc">التقِ بالأصدقاء وشارك في النقاشات الجماعية.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase" id="gallery">
+      <div class="wrap">
+        <div class="section-head rise"><span class="kicker">APP EXPERIENCE</span><h2 data-i18n="galleryTitle">اكتشف تجربة نايل شات</h2><p data-i18n="galleryDesc">معاينات توضيحية تفاعلية للمميزات. يمكن لاحقاً استبدالها بلقطات حقيقية من التطبيق.</p></div>
+        <div class="gallery-layout rise">
+          <div class="gallery-tabs" role="tablist" aria-label="App features">
+            <button type="button" class="gallery-tab active" role="tab" aria-selected="true" data-screen="chat"><b>💬</b><span data-i18n="featChat">المحادثات</span></button>
+            <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-screen="pulse"><b>💙</b><span data-i18n="featPulse">النبضات</span></button>
+            <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-screen="feed"><b>📡</b><span data-i18n="featFeed">الروافد</span></button>
+            <button type="button" class="gallery-tab" role="tab" aria-selected="false" data-screen="groups"><b>👥</b><span data-i18n="featGroups">المجالس</span></button>
+          </div>
+          <div class="gallery-stage">
+            <div class="phone-shell" id="gallery-phone">
+              <div class="phone-camera" aria-hidden="true"></div>
+              <div class="phone-screen" id="phone-screen" aria-live="polite"></div>
+              <img id="real-screenshot" class="real-screenshot" alt="لقطة شاشة من تطبيق نايل شات" hidden>
+            </div>
+            <span class="preview-disclaimer" id="preview-note" data-i18n="galleryNote">تصميم توضيحي — ليس لقطة فعلية من التطبيق</span>
+            <div class="gallery-controls"><button type="button" class="small-arrow" id="gallery-prev" aria-label="Previous screenshot">‹</button><span id="gallery-number">1 / 4</span><button type="button" class="small-arrow" id="gallery-next" aria-label="Next screenshot">›</button></div>
+          </div>
+          <div class="gallery-caption"><span class="kicker" data-i18n="previewLabel">معاينة الميزة</span><h3 id="gallery-name">المحادثات</h3><p id="gallery-description">شارك الرسائل والصور والملفات والوسائط في محادثاتك اليومية.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section releases" id="releases">
+      <div class="wrap">
+        <div class="section-head rise"><span class="kicker">LATEST RELEASES</span><h2 data-i18n="releasesTitle">التحديثات والإصدارات</h2><p data-i18n="releasesDesc">بيانات مباشرة من مستودع GitHub الرسمي للتحديثات.</p></div>
+        <div class="stats-grid rise">
+          <div class="stat"><span data-i18n="statVersion">آخر إصدار منشور</span><strong id="stat-version">v2.1</strong></div>
+          <div class="stat"><span data-i18n="statDownloads">تنزيلات ملفات الإصدارات</span><strong id="stat-downloads">—</strong></div>
+          <div class="stat"><span data-i18n="statReleases">الإصدارات المعروضة</span><strong id="stat-releases">—</strong></div>
+        </div>
+        <div class="release-layout rise">
+          <article class="latest-release">
+            <div class="release-top"><span class="version-pill" id="release-tag">v2.1</span><span class="live-pill"><span class="status-dot"></span><span data-i18n="stableVersion">نسخة منشورة</span></span></div>
+            <h3 id="release-name">NileChat v2.1</h3>
+            <p class="release-meta" id="release-meta">30 أكتوبر 2026</p>
+            <p class="release-summary" id="release-body" data-i18n="releaseFallback">تحسينات في المحادثات والنبضات والروافد والأداء العام.</p>
+            <div class="actions">
+              <a class="btn btn-primary download-link" href="https://github.com/katemkoo/NileChat-Updates/releases/download/v2.1/NileChat.apk"><span aria-hidden="true">↓</span><span data-i18n="downloadVersion">تحميل الإصدار</span></a>
+              <a class="btn btn-soft" id="release-details" href="https://github.com/katemkoo/NileChat-Updates/releases/tag/v2.1" target="_blank" rel="noopener noreferrer"><span data-i18n="releaseDetails">تفاصيل الإصدار</span><span aria-hidden="true">↗</span></a>
+            </div>
+            <p class="source-note" id="api-status" role="status" data-i18n="loadingReleases">يجري التحقق من معلومات الإصدارات…</p>
+          </article>
+          <div class="release-list-box"><h3 data-i18n="historyTitle">سجل الإصدارات</h3><div id="release-history" class="release-history"><div class="history-row"><strong>v2.1</strong><span>30 / 10 / 2026</span></div></div><a class="minor-link" href="https://github.com/katemkoo/NileChat-Updates/releases" target="_blank" rel="noopener noreferrer"><span data-i18n="allReleases">جميع الإصدارات على GitHub</span> ↗</a></div>
+        </div>
+        <p class="disclosure" data-i18n="statsNote">الإحصائيات تمثل عدد مرات تنزيل ملفات الإصدارات المتاحة على GitHub، ولا تعني عدد المستخدمين الفريدين.</p>
+      </div>
+    </section>
+
+    <section class="section roadmap" id="roadmap">
+      <div class="wrap">
+        <div class="section-head rise"><span class="kicker">WHAT'S NEXT</span><h2 data-i18n="roadmapTitle">رحلة التطوير</h2><p data-i18n="roadmapDesc">مزايا حالية وأفكار تحسين قادمة، وليست وعوداً بمواعيد إطلاق.</p></div>
+        <div class="roadmap-grid">
+          <article class="roadmap-item rise"><span class="stage done" data-i18n="stageExisting">متاح في التطبيق</span><div class="roadmap-emoji">💬</div><h3 data-i18n="roadChat">المحادثات والنبضات</h3><p data-i18n="roadChatDesc">الأساسيات المعروضة ضمن الإصدار المنشور.</p></article>
+          <article class="roadmap-item rise"><span class="stage improving" data-i18n="stageImproving">تحسين مستمر</span><div class="roadmap-emoji">⚡</div><h3 data-i18n="roadPerf">الأداء والاتصال</h3><p data-i18n="roadPerfDesc">العمل على استجابة التطبيق وثبات المراسلة والتزامن.</p></article>
+          <article class="roadmap-item rise"><span class="stage idea" data-i18n="stageProposed">مقترح للتطوير</span><div class="roadmap-emoji">🎮</div><h3 data-i18n="roadGames">الألعاب المصغّرة</h3><p data-i18n="roadGamesDesc">تجارب فردية وجماعية داخل التطبيق بعد إتمام التطوير والاختبار.</p></article>
+          <article class="roadmap-item rise"><span class="stage idea" data-i18n="stageProposed">مقترح للتطوير</span><div class="roadmap-emoji">📞</div><h3 data-i18n="roadCalls">تحسين المكالمات</h3><p data-i18n="roadCallsDesc">تحسين موثوقية الاتصال الصوتي والمرئي بحسب جاهزية البنية التقنية.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section support" id="support">
+      <div class="wrap support-grid">
+        <div class="support-copy rise">
+          <span class="kicker">HELP & SUPPORT</span>
+          <h2 data-i18n="supportTitle">نحن هنا لمساعدتك</h2>
+          <p data-i18n="supportDesc">هل واجهت مشكلة أو لديك اقتراح؟ اكتب التفاصيل وسيتم فتح صفحة بلاغ على GitHub لمراجعتها قبل الإرسال.</p>
+          <div class="support-bullets"><p>✓ <span data-i18n="supportFree">إرسال البلاغ مجاني</span></p><p>✓ <span data-i18n="supportGitHub">يتطلب تسجيل دخول GitHub لإرسال البلاغ</span></p><p>✓ <span data-i18n="supportPrivacy">لا تكتب كلمات مرور أو بيانات خاصة في البلاغات العامة</span></p></div>
+        </div>
+        <form id="support-form" class="support-form rise">
+          <label for="support-kind" data-i18n="issueType">نوع الرسالة</label>
+          <select id="support-kind" required><option value="bug" data-i18n="issueBug">الإبلاغ عن مشكلة</option><option value="idea" data-i18n="issueIdea">اقتراح ميزة</option><option value="other" data-i18n="issueOther">استفسار آخر</option></select>
+          <label for="support-title" data-i18n="issueTitle">عنوان مختصر</label>
+          <input type="text" id="support-title" minlength="5" maxlength="120" required placeholder="مثال: مشكلة في تسجيل الدخول" data-i18n-placeholder="titlePlaceholder">
+          <label for="support-description" data-i18n="issueDescription">تفاصيل البلاغ</label>
+          <textarea id="support-description" rows="5" minlength="12" maxlength="5000" required placeholder="اشرح ما حدث والخطوات التي أدت للمشكلة…" data-i18n-placeholder="descriptionPlaceholder"></textarea>
+          <p class="form-note" data-i18n="formNote">لن تُرسل البيانات من الموقع مباشرة؛ سيُفتح نموذج GitHub وتؤكد الإرسال بنفسك.</p>
+          <button class="btn btn-primary full-btn" type="submit"><span data-i18n="sendReport">المتابعة إلى GitHub</span> ↗</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="wrap faq-wrap">
+        <div class="section-head rise"><span class="kicker">QUESTIONS & ANSWERS</span><h2 data-i18n="faqTitle">الأسئلة الشائعة</h2></div>
+        <details class="faq-item rise"><summary data-i18n="q1">كيف أحمّل نايل شات؟</summary><p data-i18n="a1">اضغط تحميل التطبيق، ثم افتح ملف APK الذي يتم تنزيله من GitHub. اتبع تعليمات أندرويد لتثبيت التطبيقات من هذا المصدر إن سمحت بذلك.</p></details>
+        <details class="faq-item rise"><summary data-i18n="q2">كيف أعرف أحدث إصدار؟</summary><p data-i18n="a2">قسم التحديثات يحاول قراءة آخر إصدار منشور على GitHub تلقائياً. إذا تعذر الاتصال يعرض رابط الإصدار الاحتياطي المعروف.</p></details>
+        <details class="faq-item rise"><summary data-i18n="q3">هل الموقع نفسه تطبيق للدردشة؟</summary><p data-i18n="a3">لا. هذا الموقع للتعريف بالتطبيق وتنزيله ومتابعة أخباره، بينما المحادثات تتم داخل تطبيق أندرويد.</p></details>
+        <details class="faq-item rise"><summary data-i18n="q4">هل أحتاج حساب GitHub لتحميل التطبيق؟</summary><p data-i18n="a4">عادة يمكن تنزيل ملفات الإصدارات العامة دون حساب، لكن إرسال بلاغ من GitHub يحتاج إلى تسجيل الدخول.</p></details>
+      </div>
+    </section>
+
+    <section class="section download-section" id="download">
+      <div class="wrap"><div class="download-panel rise"><span class="download-orb" aria-hidden="true">✦</span><span class="kicker light">NILECHAT FOR ANDROID</span><h2 data-i18n="downloadTitle">جاهز تبدأ تجربة جديدة؟</h2><p data-i18n="downloadDesc">انضم إلى عالم نايل شات وحمّل أحدث إصدار منشور من التطبيق.</p><a class="btn btn-white download-link" href="https://github.com/katemkoo/NileChat-Updates/releases/download/v2.1/NileChat.apk">↓ <span data-i18n="downloadNow">حمّل نايل شات</span></a><div id="download-version" class="download-version">Android · v2.1</div></div></div>
+    </section>
+
+    <section class="section faq" id="privacy">
+      <div class="wrap faq-wrap"><div class="section-head"><span class="kicker">WEBSITE PRIVACY</span><h2 data-i18n="privacyTitle">خصوصية موقع نايل شات</h2><p data-i18n="privacyIntro">هذه المعلومات تخص الموقع التعريفي فقط، ولا تُعد بديلاً عن سياسة خصوصية تطبيق أندرويد.</p></div>
+      <div class="legal-card">
+        <h3 data-i18n="privacyHeading1">ما الذي يفعله الموقع؟</h3><p data-i18n="privacyParagraph1">يعرض معلومات عامة عن التطبيق ويطلب بيانات الإصدارات العامة من GitHub، مع روابط لتنزيل APK وإرسال بلاغات عبر GitHub.</p>
+        <h3 data-i18n="privacyHeading2">بياناتك</h3><p data-i18n="privacyParagraph2">لا يحتوي الموقع على حسابات مستخدمين أو قاعدة بيانات محلية لتلقي البلاغات. يُحفظ اختيار اللغة والمظهر وبيانات الإصدارات المؤقتة في متصفحك فقط. عند فتح روابط GitHub تطبق سياسات GitHub على خدمتها.</p>
+        <h3 data-i18n="privacyHeading3">البلاغات</h3><p data-i18n="privacyParagraph3">عند ملء نموذج الدعم يتم إعداد رابط إلى GitHub Issues يحمل النص الذي كتبته. لا ينشر الموقع البلاغ تلقائياً؛ أنت تراجعه وترسله في GitHub. لا تضع معلومات سرية في البلاغات العامة.</p>
+        <h3 data-i18n="privacyHeading4">خصوصية تطبيق أندرويد</h3><p data-i18n="privacyParagraph4">لم تُراجع في هذه الصفحة ممارسات جمع البيانات داخل تطبيق أندرويد، وهي تحتاج إلى سياسة مستقلة مبنية على إعداداته وخدماته الفعلية.</p>
+      </div></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div><a href="#top" class="footer-brand">Nile<span>Chat</span></a><p data-i18n="footerTagline">نبض التواصل السوداني</p></div>
+      <div><strong data-i18n="footerLinks">روابط مهمة</strong><a href="#features" data-i18n="navFeatures">المميزات</a><a href="#releases" data-i18n="navUpdates">التحديثات</a><a href="#support" data-i18n="navHelp">الدعم</a><a href="#privacy" data-i18n="privacy">خصوصية الموقع</a></div>
+      <div><strong data-i18n="footerDevTitle">عن المطوّر</strong><p data-i18n="developerName">المطوّر: محمد الخاتم</p><a href="https://github.com/katemkoo" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+    </div>
+    <div class="wrap footer-bottom"><span>© 2026 NileChat. <span data-i18n="rights">جميع الحقوق محفوظة.</span></span><span data-i18n="footerFootnote">الموقع التعريفي الرسمي — GitHub Pages</span></div>
+  </footer>
+<script>
+/* NileChat — no build tools, accounts or API keys required */
+(function () {
+  'use strict';
+  const RELEASE_API = 'https://api.github.com/repos/katemkoo/NileChat-Updates/releases?per_page=30';
+  const ISSUES_URL = 'https://github.com/katemkoo/nilechat-website/issues/new';
+  const DEFAULT_DOWNLOAD = 'https://github.com/katemkoo/NileChat-Updates/releases/download/v2.1/NileChat.apk';
+  const DEFAULT_RELEASE = 'https://github.com/katemkoo/NileChat-Updates/releases/tag/v2.1';
+  const CACHE_KEY = 'nilechat_release_cache_v3';
+  const CACHE_MS = 30 * 60 * 1000;
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const memory = { releases: null, lang: 'ar', screen: 'chat' };
+  const screens = ['chat', 'pulse', 'feed', 'groups'];
+
+  const translations = {
+    ar: {
+      skip:'الانتقال إلى المحتوى', navHome:'الرئيسية', navFeatures:'المميزات', navGallery:'المعرض', navUpdates:'التحديثات', navRoadmap:'خارطة التطوير', navHelp:'الدعم', navDownload:'تحميل التطبيق',
+      heroLabel:'🇸🇩 نبض التواصل السوداني',heroTitle:'قرب المسافات.',heroTitleSecond:'خلّي التواصل ينبض.',heroDesc:'نايل شات يجمع المحادثات والنبضات والروافد والمجالس في تجربة واحدة عصرية، مصممة لتكون أقرب إليك.',
+      downloadNow:'حمّل نايل شات',explore:'استكشف التطبيق',android:'لأجهزة Android',free:'تحميل مجاني',floatChats:'المحادثات تجمعنا',floatPulses:'شارك نبضتك',
+      featuresTitle:'كل عالمك في مكان واحد',featuresDesc:'مساحات متنوعة للتواصل ومشاركة اللحظات والأفكار.',
+      featChat:'المحادثات',featChatDesc:'شارك الرسائل والصور والملفات والوسائط في محادثاتك اليومية.',
+      featPulse:'النبضات',featPulseDesc:'شارك لحظاتك، وتابع ما ينشره أصدقاؤك.',
+      featFeed:'الروافد',featFeedDesc:'اكتشف المحتوى والتحديثات التي تهمك.',
+      featGroups:'المجالس',featGroupsDesc:'التقِ بالأصدقاء وشارك في النقاشات الجماعية.',
+      galleryTitle:'اكتشف تجربة نايل شات',galleryDesc:'معاينات توضيحية تفاعلية للمميزات. يمكن لاحقاً استبدالها بلقطات حقيقية من التطبيق.',
+      galleryNote:'تصميم توضيحي — ليس لقطة فعلية من التطبيق', galleryReal:'لقطة شاشة حقيقية من التطبيق', previewLabel:'معاينة الميزة',
+      releasesTitle:'التحديثات والإصدارات',releasesDesc:'بيانات مباشرة من مستودع GitHub الرسمي للتحديثات.',statVersion:'آخر إصدار منشور',statDownloads:'تنزيلات ملفات الإصدارات',statReleases:'الإصدارات المعروضة',stableVersion:'نسخة منشورة',
+      releaseFallback:'تحسينات في المحادثات والنبضات والروافد والأداء العام.',downloadVersion:'تحميل الإصدار',releaseDetails:'تفاصيل الإصدار',loadingReleases:'يجري التحقق من معلومات الإصدارات…',releaseLive:'تم تحديث البيانات مباشرة من GitHub.',releaseCached:'تظهر بيانات GitHub المحفوظة مؤقتاً.',releaseOffline:'تعذّر جلب البيانات الآن؛ روابط الإصدار v2.1 المعروفة ما زالت متاحة.',historyTitle:'سجل الإصدارات',allReleases:'جميع الإصدارات على GitHub',statsNote:'الإحصائيات تمثل عدد مرات تنزيل ملفات الإصدارات المتاحة على GitHub، ولا تعني عدد المستخدمين الفريدين.',
+      roadmapTitle:'رحلة التطوير',roadmapDesc:'مزايا حالية وأفكار تحسين قادمة، وليست وعوداً بمواعيد إطلاق.',stageExisting:'متاح في التطبيق',stageImproving:'تحسين مستمر',stageProposed:'مقترح للتطوير',roadChat:'المحادثات والنبضات',roadChatDesc:'الأساسيات المعروضة ضمن الإصدار المنشور.',roadPerf:'الأداء والاتصال',roadPerfDesc:'العمل على استجابة التطبيق وثبات المراسلة والتزامن.',roadGames:'الألعاب المصغّرة',roadGamesDesc:'تجارب فردية وجماعية داخل التطبيق بعد إتمام التطوير والاختبار.',roadCalls:'تحسين المكالمات',roadCallsDesc:'تحسين موثوقية الاتصال الصوتي والمرئي بحسب جاهزية البنية التقنية.',
+      supportTitle:'نحن هنا لمساعدتك',supportDesc:'هل واجهت مشكلة أو لديك اقتراح؟ اكتب التفاصيل وسيتم فتح صفحة بلاغ على GitHub لمراجعتها قبل الإرسال.',supportFree:'إرسال البلاغ مجاني',supportGitHub:'يتطلب تسجيل دخول GitHub لإرسال البلاغ',supportPrivacy:'لا تكتب كلمات مرور أو بيانات خاصة في البلاغات العامة',issueType:'نوع الرسالة',issueBug:'الإبلاغ عن مشكلة',issueIdea:'اقتراح ميزة',issueOther:'استفسار آخر',issueTitle:'عنوان مختصر',issueDescription:'تفاصيل البلاغ',titlePlaceholder:'مثال: مشكلة في تسجيل الدخول',descriptionPlaceholder:'اشرح ما حدث والخطوات التي أدت للمشكلة…',formNote:'لن تُرسل البيانات من الموقع مباشرة؛ سيُفتح نموذج GitHub وتؤكد الإرسال بنفسك.',sendReport:'المتابعة إلى GitHub',
+      faqTitle:'الأسئلة الشائعة',q1:'كيف أحمّل نايل شات؟',a1:'اضغط تحميل التطبيق، ثم افتح ملف APK الذي يتم تنزيله من GitHub. اتبع تعليمات أندرويد لتثبيت التطبيقات من هذا المصدر إن سمحت بذلك.',q2:'كيف أعرف أحدث إصدار؟',a2:'قسم التحديثات يحاول قراءة آخر إصدار منشور على GitHub تلقائياً. إذا تعذر الاتصال يعرض رابط الإصدار الاحتياطي المعروف.',q3:'هل الموقع نفسه تطبيق للدردشة؟',a3:'لا. هذا الموقع للتعريف بالتطبيق وتنزيله ومتابعة أخباره، بينما المحادثات تتم داخل تطبيق أندرويد.',q4:'هل أحتاج حساب GitHub لتحميل التطبيق؟',a4:'عادة يمكن تنزيل ملفات الإصدارات العامة دون حساب، لكن إرسال بلاغ من GitHub يحتاج إلى تسجيل الدخول.',
+      downloadTitle:'جاهز تبدأ تجربة جديدة؟',downloadDesc:'انضم إلى عالم نايل شات وحمّل أحدث إصدار منشور من التطبيق.',footerTagline:'نبض التواصل السوداني',footerLinks:'روابط مهمة',privacy:'خصوصية الموقع',footerDevTitle:'عن المطوّر',developerName:'المطوّر: محمد الخاتم',rights:'جميع الحقوق محفوظة.',footerFootnote:'الموقع التعريفي الرسمي — GitHub Pages',
+      privacyTitle:'خصوصية موقع نايل شات',privacyIntro:'هذه المعلومات تخص الموقع التعريفي فقط، ولا تُعد بديلاً عن سياسة خصوصية تطبيق أندرويد.',privacyHeading1:'ما الذي يفعله الموقع؟',privacyParagraph1:'يعرض معلومات عامة عن التطبيق ويطلب بيانات الإصدارات العامة من GitHub، مع روابط لتنزيل APK وإرسال بلاغات عبر GitHub.',privacyHeading2:'بياناتك',privacyParagraph2:'لا يحتوي الموقع على حسابات مستخدمين أو قاعدة بيانات محلية لتلقي البلاغات. يُحفظ اختيار اللغة والمظهر وبيانات الإصدارات المؤقتة في متصفحك فقط. عند فتح روابط GitHub تطبق سياسات GitHub على خدمتها.',privacyHeading3:'البلاغات',privacyParagraph3:'عند ملء نموذج الدعم يتم إعداد رابط إلى GitHub Issues يحمل النص الذي كتبته. لا ينشر الموقع البلاغ تلقائياً؛ أنت تراجعه وترسله في GitHub. لا تضع معلومات سرية في البلاغات العامة.',privacyHeading4:'خصوصية تطبيق أندرويد',privacyParagraph4:'لم تُراجع في هذه الصفحة ممارسات جمع البيانات داخل تطبيق أندرويد، وهي تحتاج إلى سياسة مستقلة مبنية على إعداداته وخدماته الفعلية.',privacyBack:'العودة إلى الموقع',
+      previewNames:['المحادثات','النبضات','الروافد','المجالس'],previewDescriptions:['شارك الرسائل والصور والملفات والوسائط في محادثاتك اليومية.','شارك لحظاتك، وتابع ما ينشره أصدقاؤك.','اكتشف المحتوى والتحديثات التي تهمك.','التقِ بالأصدقاء وشارك في النقاشات الجماعية.'],
+      msgSample:'أهلاً بك في نايل شات 💙',msgReply:'تواصل أقرب، تجربة أجمل ✨',demoCaption:'معاينة تفاعلية',demoSearch:'بحث في المحادثات',demoNew:'رسالة جديدة',demoMoments:'لحظات اليوم',demoFeed:'أحدث الروافد',demoGroup:'مجالسك',demoMember:'عضو في المجلس',demoPosts:'محتوى جديد',demoView:'عرض',
+    },
+    en: {
+      skip:'Skip to content',navHome:'Home',navFeatures:'Features',navGallery:'Gallery',navUpdates:'Updates',navRoadmap:'Roadmap',navHelp:'Support',navDownload:'Get the app',
+      heroLabel:'🇸🇩 The pulse of Sudanese connection',heroTitle:'Bring people closer.',heroTitleSecond:'Keep the conversation alive.',heroDesc:'NileChat brings messages, pulses, feeds and councils together in a modern, familiar experience made for you.',
+      downloadNow:'Download NileChat',explore:'Explore the app',android:'For Android devices',free:'Free download',floatChats:'Stay connected',floatPulses:'Share a pulse',
+      featuresTitle:'Your world, one place',featuresDesc:'More ways to connect, share moments and exchange ideas.',
+      featChat:'Chats',featChatDesc:'Share messages, images, files and media in everyday conversations.',
+      featPulse:'Pulses',featPulseDesc:'Share your moments and see what friends are posting.',
+      featFeed:'Feeds',featFeedDesc:'Discover content, news and updates that matter to you.',
+      featGroups:'Councils',featGroupsDesc:'Meet friends and participate in group discussions.',
+      galleryTitle:'Explore the NileChat experience',galleryDesc:'Interactive illustrative previews of app features. Actual app screenshots can be added later.',
+      galleryNote:'Illustrative preview — not an actual app screenshot',galleryReal:'Actual app screenshot',previewLabel:'Feature preview',
+      releasesTitle:'Updates & releases',releasesDesc:'Live public release data from the official GitHub repository.',statVersion:'Latest published version',statDownloads:'Release asset downloads',statReleases:'Releases displayed',stableVersion:'Published release',releaseFallback:'Improvements to chats, pulses, feeds and overall performance.',downloadVersion:'Download release',releaseDetails:'Release notes',loadingReleases:'Checking releases…',releaseLive:'Updated from GitHub.',releaseCached:'Showing temporarily cached GitHub data.',releaseOffline:'Unable to retrieve data; the known v2.1 release link is still available.',historyTitle:'Release history',allReleases:'All releases on GitHub',statsNote:'Counts are downloads of publicly available release files on GitHub, not unique users.',
+      roadmapTitle:'What’s next',roadmapDesc:'Current features and future improvement ideas, not launch-date commitments.',stageExisting:'Available in the app',stageImproving:'Ongoing improvements',stageProposed:'Proposed',roadChat:'Chats and pulses',roadChatDesc:'Core features listed in the published release.',roadPerf:'Performance & connectivity',roadPerfDesc:'Work toward faster response, stable messaging and synchronization.',roadGames:'Mini-games',roadGamesDesc:'Solo and multiplayer experiences after development and testing.',roadCalls:'Calls improvements',roadCallsDesc:'Improve voice and video reliability as infrastructure allows.',
+      supportTitle:'Here to help',supportDesc:'Got an issue or suggestion? Fill out the details to open a GitHub issue for review before submitting.',supportFree:'Reporting is free',supportGitHub:'A GitHub login is required to submit an issue',supportPrivacy:'Never put passwords or private information in public issues',issueType:'Message type',issueBug:'Report a bug',issueIdea:'Suggest a feature',issueOther:'Other question',issueTitle:'Short title',issueDescription:'Details',titlePlaceholder:'Example: Sign-in not working',descriptionPlaceholder:'Describe what happened and how to reproduce it…',formNote:'Your report is not sent directly from the website; GitHub opens and you submit it yourself.',sendReport:'Continue to GitHub',
+      faqTitle:'Frequently asked questions',q1:'How do I download NileChat?',a1:'Select Download to get the APK hosted on GitHub. Follow Android prompts for installing apps from this source if you choose to allow it.',q2:'How can I see the latest version?',a2:'The updates section automatically checks public GitHub releases. If the connection fails, a known fallback release link appears.',q3:'Can I chat on this website?',a3:'No. This is the informational website for downloads, updates and support. Messaging happens in the Android app.',q4:'Do I need GitHub to download the app?',a4:'Public release files usually download without a GitHub account; submitting an issue on GitHub requires signing in.',
+      downloadTitle:'Ready for a better connection?',downloadDesc:'Discover NileChat and download the latest published Android release.',footerTagline:'The pulse of Sudanese connection',footerLinks:'Quick links',privacy:'Website privacy',footerDevTitle:'Developer',developerName:'Developer: Mohamed Al-Khatim',rights:'All rights reserved.',footerFootnote:'Official app information website — GitHub Pages',
+      privacyTitle:'NileChat website privacy',privacyIntro:'This information only describes the informational website. It is not a substitute for a privacy policy for the Android app.',privacyHeading1:'What the website does',privacyParagraph1:'It displays public app information, fetches release metadata from GitHub, and links to APK downloads and GitHub issue reporting.',privacyHeading2:'Your data',privacyParagraph2:'This website has no user accounts or local server-side database for support reports. Your language, appearance and temporary release cache are stored only in your browser. GitHub services have their own privacy policies.',privacyHeading3:'Support reports',privacyParagraph3:'The support form prepares a link to GitHub Issues with the text you enter. Nothing is published automatically. You review and submit your report on GitHub. Never include confidential information in public issues.',privacyHeading4:'Android app privacy',privacyParagraph4:'The Android app’s data practices have not been audited here and require a separate policy based on the actual services and app configuration.',privacyBack:'Back to homepage',
+      previewNames:['Chats','Pulses','Feeds','Councils'],previewDescriptions:['Share messages, images, files and media in everyday conversations.','Share moments and see what friends post.','Discover content and updates that matter to you.','Join friends in group discussions.'],
+      msgSample:'Welcome to NileChat 💙',msgReply:'Connect closer, share more ✨',demoCaption:'Interactive preview',demoSearch:'Search conversations',demoNew:'New message',demoMoments:'Today’s moments',demoFeed:'Latest feeds',demoGroup:'Your councils',demoMember:'Council member',demoPosts:'New content',demoView:'View'
+    }
+  };
+
+  function storeSet(key, value) { try { localStorage.setItem(key,value); } catch (_) {} }
+  function storeGet(key) { try { return localStorage.getItem(key); } catch (_) { return null; } }
+  function t(key) { return translations[memory.lang][key] || key; }
+  function localizedDate(iso) {
+    if (!iso) return '—';
+    const date = new Date(iso);
+    return Number.isNaN(date.getTime()) ? '—' : date.toLocaleDateString(memory.lang === 'ar' ? 'ar-SD' : 'en-GB', {day:'numeric',month:'short',year:'numeric'});
+  }
+  function niceCount(number) { return new Intl.NumberFormat(memory.lang === 'ar' ? 'ar-SD' : 'en-US').format(number); }
+
+  function renderTranslation() {
+    document.documentElement.lang = memory.lang;
+    document.documentElement.dir = memory.lang === 'ar' ? 'rtl' : 'ltr';
+    $$('[data-i18n]').forEach(el => { const value = translations[memory.lang][el.dataset.i18n]; if (value !== undefined) el.textContent = value; });
+    $$('[data-i18n-placeholder]').forEach(el => { const value = translations[memory.lang][el.dataset.i18nPlaceholder]; if (value) el.placeholder = value; });
+    const langToggle = $('#language-toggle');
+    if (langToggle) langToggle.textContent = memory.lang === 'ar' ? 'EN' : 'عربي';
+    const menuToggle = $('#menu-toggle');
+    if (menuToggle) menuToggle.setAttribute('aria-label', memory.lang === 'ar' ? 'فتح القائمة' : 'Open menu');
+    if ($('#gallery-phone')) selectScreen(memory.screen);
+    if (memory.releases) paintReleases(memory.releases, 'cached');
+  }
+
+  function setupNav() {
+    const menu = $('#menu-toggle'); const nav = $('#main-nav');
+    if (!menu || !nav) return;
+    function closeMenu() {nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰';}
+    menu.addEventListener('click', () => {const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'✕':'☰';});
+    $$('a',nav).forEach(link=>link.addEventListener('click',closeMenu));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+    document.addEventListener('click',e=>{if(!menu.contains(e.target) && !nav.contains(e.target))closeMenu();});
+  }
+
+  function setupThemeAndLanguage() {
+    const savedLang=storeGet('nilechat_lang');
+    memory.lang=savedLang === 'en' ? 'en' : 'ar';
+    const theme=storeGet('nilechat_theme');
+    if(theme==='light') document.documentElement.dataset.theme='light';
+    const themeToggle=$('#theme-toggle');
+    if(themeToggle){
+      const update=()=>{themeToggle.textContent=document.documentElement.dataset.theme==='light'?'☾':'☼';themeToggle.setAttribute('aria-label',document.documentElement.dataset.theme==='light'?'Dark mode':'Light mode');};
+      update(); themeToggle.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='light'?'dark':'light';document.documentElement.dataset.theme=next;storeSet('nilechat_theme',next);update();});
+    }
+    const langToggle=$('#language-toggle');
+    if(langToggle)langToggle.addEventListener('click',()=>{memory.lang=memory.lang==='ar'?'en':'ar';storeSet('nilechat_lang',memory.lang);renderTranslation();});
+    renderTranslation();
+  }
+
+  const mockTemplates = {
+    chat: (l)=>`<div class="phone-top"><span>${l.demoCaption}</span><span>⋮</span></div><div class="phone-sub"><strong>${l.demoSearch}</strong> ⌕</div><div class="mock-list"><div class="mock-person"><span class="mock-avatar">م</span><div class="who">${l.demoNew}<small>${l.msgSample}</small></div><span class="when">10:32</span></div><div class="mock-person"><span class="mock-avatar">N</span><div class="who">NileChat<small>${l.msgReply}</small></div><span class="mock-pill">2</span></div><div class="mock-person"><span class="mock-avatar">💙</span><div class="who">${l.featGroups}<small>${l.demoNew}</small></div><span class="when">09:45</span></div><div class="mock-person"><span class="mock-avatar">✨</span><div class="who">${l.featPulse}<small>${l.demoMoments}</small></div></div></div><div class="mock-compose">${l.demoNew}<span>✎</span></div>`,
+    pulse: (l)=>`<div class="phone-top"><span>${l.featPulse}</span><span>⋮</span></div><div class="phone-sub">${l.demoMoments}<strong>＋</strong></div><div class="mock-cards"><div class="mock-story"><div class="story-art">💙</div><div class="story-bottom">${l.msgSample}</div></div><div class="mock-story"><div class="story-art" style="background:linear-gradient(120deg,#5735c7,#e99cdc)">✨</div><div class="story-bottom">${l.msgReply}</div></div></div>`,
+    feed: (l)=>`<div class="phone-top"><span>${l.featFeed}</span><span>⋮</span></div><div class="phone-sub">${l.demoFeed}<strong>⌕</strong></div><div class="mock-cards"><div class="mock-post"><b>📡 NileChat</b>${l.featFeedDesc}<div class="story-art" style="height:75px;border-radius:8px;margin:7px 0;background:linear-gradient(110deg,#144abb,#55ccea)">📡</div>♥　↗　${l.demoView}</div><div class="mock-post"><b>💙 ${l.featPulse}</b>${l.demoPosts}<div style="padding:7px 0;color:#6492cb">${l.msgReply}</div></div></div>`,
+    groups: (l)=>`<div class="phone-top"><span>${l.featGroups}</span><span>＋</span></div><div class="phone-sub">${l.demoGroup}<strong>⌕</strong></div><div class="mock-cards"><div class="mock-group"><span class="mock-avatar">👥</span><span><b>${l.featGroups}</b><small>${l.demoMember}</small></span></div><div class="mock-group"><span class="mock-avatar">💬</span><span><b>${l.featChat}</b><small>${l.demoPosts}</small></span></div><div class="mock-group"><span class="mock-avatar">📡</span><span><b>${l.featFeed}</b><small>${l.demoMember}</small></span></div></div>`
+  };
+  const previewImgNames = {chat:'chat.png',pulse:'pulse.png',feed:'feed.png',groups:'groups.png'};
+  // Optional real images. If not present, authored demonstration UI is displayed instead.
+  let screenshotRequest=0;
+  function selectScreen(screen) {
+    const index=screens.indexOf(screen);
+    if(index<0 || !$('#gallery-phone')) return;
+    memory.screen=screen;
+    $$('.gallery-tab').forEach(button=>{const selected=button.dataset.screen===screen;button.classList.toggle('active',selected);button.setAttribute('aria-selected',String(selected));});
+    const lang=translations[memory.lang];
+    $('#gallery-name').textContent=lang.previewNames[index];
+    $('#gallery-description').textContent=lang.previewDescriptions[index];
+    $('#gallery-number').textContent=`${index+1} / ${screens.length}`;
+    $('#phone-screen').innerHTML=mockTemplates[screen](lang);
+    const shot=$('#real-screenshot');const note=$('#preview-note');
+    shot.hidden=true;note.textContent=t('galleryNote');
+    const request=++screenshotRequest;
+    const probe=new Image();
+    probe.onload=()=>{if(request!==screenshotRequest)return;shot.src=probe.src;shot.alt=lang.previewNames[index];shot.hidden=false;note.textContent=t('galleryReal');};
+    probe.onerror=()=>{};
+    probe.src=`screenshots/${previewImgNames[screen]}`;
+  }
+  function setupGallery() {
+    if(!$('#gallery-phone')) return;
+    $$('.gallery-tab').forEach(button=>button.addEventListener('click',()=>selectScreen(button.dataset.screen)));
+    $('#gallery-prev').addEventListener('click',()=>selectScreen(screens[(screens.indexOf(memory.screen)+screens.length-1)%screens.length]));
+    $('#gallery-next').addEventListener('click',()=>selectScreen(screens[(screens.indexOf(memory.screen)+1)%screens.length]));
+    selectScreen('chat');
+  }
+
+  function getPublishedReleases(data) {
+    return Array.isArray(data) ? data.filter(r=>r && !r.draft && !r.prerelease && r.published_at).sort((a,b)=>new Date(b.published_at)-new Date(a.published_at)) : [];
+  }
+  function paintReleases(releases, provenance) {
+    if(!$('#release-name') || !releases.length) return;
+    const latest=releases[0];
+    const tag=latest.tag_name||'v2.1';
+    $('#stat-version').textContent=tag;
+    $('#hero-version').textContent=tag;
+    $('#release-tag').textContent=tag;
+    $('#release-name').textContent=latest.name||`NileChat ${tag}`;
+    $('#release-meta').textContent=localizedDate(latest.published_at);
+    // Release-body content is untrusted GitHub text and is always assigned as text, never HTML.
+    $('#release-body').textContent=(latest.body||t('releaseFallback')).trim().slice(0,2200);
+    const count=releases.reduce((total,r)=>total+(Array.isArray(r.assets)?r.assets.reduce((sum,a)=>sum+(Number.isFinite(a.download_count)?a.download_count:0),0):0),0);
+    $('#stat-downloads').textContent=niceCount(count);
+    $('#stat-releases').textContent=niceCount(releases.length);
+    const apk=(latest.assets||[]).find(asset=>/\.apk$/i.test(asset.name||'') && /^https:\/\/github\.com\//.test(asset.browser_download_url||''));
+    // If a new release contains no APK, retain the previously verified v2.1 download.
+    const download=apk?.browser_download_url||DEFAULT_DOWNLOAD;
+    $$('.download-link').forEach(link=>{link.href=download;});
+    $('#download-version').textContent=`Android · ${apk?tag:'v2.1'}`;
+    const details=/^https:\/\/github\.com\//.test(latest.html_url||'')?latest.html_url:DEFAULT_RELEASE;
+    $('#release-details').href=details;
+    const history=$('#release-history');history.replaceChildren();
+    releases.slice(0,6).forEach(release=>{
+      const row=document.createElement('div');row.className='history-row';
+      const name=document.createElement('strong');name.textContent=release.tag_name||'—';
+      const date=document.createElement('span');date.textContent=localizedDate(release.published_at);
+      row.append(name,date);history.append(row);
+    });
+    $('#api-status').textContent=provenance==='live'?t('releaseLive'):t('releaseCached');
+  }
+  async function loadReleases() {
+    if(!$('#release-name')) return;
+    let oldCache=null;
+    try {const raw=storeGet(CACHE_KEY);if(raw)oldCache=JSON.parse(raw);}catch(_){}
+    if(oldCache && Array.isArray(oldCache.data)) {
+      const valid=getPublishedReleases(oldCache.data);
+      if(valid.length) {memory.releases=valid;paintReleases(valid,'cached');}
+      if(Date.now()-oldCache.at<CACHE_MS && valid.length) return;
+    }
+    try {
+      const controller=new AbortController();
+      const timeout=setTimeout(()=>controller.abort(),9000);
+      let response;
+      try {response=await fetch(RELEASE_API,{headers:{Accept:'application/vnd.github+json'},signal:controller.signal});}
+      finally {clearTimeout(timeout);}
+      if(!response.ok) throw new Error('GitHub API HTTP '+response.status);
+      const data=await response.json();const published=getPublishedReleases(data);
+      if(!published.length) throw new Error('No published releases');
+      memory.releases=published;paintReleases(published,'live');
+      storeSet(CACHE_KEY,JSON.stringify({at:Date.now(),data:published.map(r=>({tag_name:r.tag_name,name:r.name,body:r.body,published_at:r.published_at,html_url:r.html_url,assets:(r.assets||[]).map(a=>({name:a.name,browser_download_url:a.browser_download_url,download_count:a.download_count}))}))}));
+    } catch (_) {
+      if(memory.releases) $('#api-status').textContent=t('releaseCached');
+      else $('#api-status').textContent=t('releaseOffline');
+    }
+  }
+
+  function setupSupport() {
+    const form=$('#support-form');if(!form)return;
+    form.addEventListener('submit',e=>{
+      e.preventDefault(); if(!form.reportValidity())return;
+      const kind=$('#support-kind').value;
+      const title=$('#support-title').value.trim();
+      const description=$('#support-description').value.trim();
+      if(title.length<5 || description.length<12) return;
+      const type=kind==='bug'?'Bug':kind==='idea'?'Feature request':'Question';
+      const body=`Type: ${type}\n\n${description}\n\n---\nSubmitted via NileChat website (review before publishing).`;
+      const target=ISSUES_URL+'?title='+encodeURIComponent('['+type+'] '+title)+'&body='+encodeURIComponent(body);
+      // Only navigate from an explicit user click. Browser may open GitHub app.
+      window.location.assign(target);
+    });
+  }
+
+  function setupMotion() {
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    if('IntersectionObserver' in window) {
+      document.documentElement.classList.add('has-io');
+      const observer=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});
+      },{threshold:.06,rootMargin:'0px 0px 35px 0px'});
+      $$('.rise').forEach(element=>observer.observe(element));
+    }
+    const frame=$('#hero-tilt');const area=$('.hero-art');
+    if(!frame || !area || !window.matchMedia('(hover: hover) and (pointer: fine)').matches)return;
+    area.addEventListener('pointermove',e=>{
+      const rect=area.getBoundingClientRect();
+      const x=(e.clientX-rect.left)/rect.width-.5;const y=(e.clientY-rect.top)/rect.height-.5;
+      frame.style.animation='none';frame.style.transform=`perspective(1100px) rotateY(${(-x*12).toFixed(1)}deg) rotateX(${(-y*9).toFixed(1)}deg)`;
+    });
+    area.addEventListener('pointerleave',()=>{frame.style.animation='';frame.style.transform='';});
+  }
+
+  function init() {setupNav();setupGallery();setupThemeAndLanguage();setupSupport();setupMotion();loadReleases();}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+}());
+
+</script>
+</body>
+</html>
